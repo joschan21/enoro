@@ -1,11 +1,10 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { FC, Suspense } from 'react'
-import About from '../components/homepage/About/About'
 import Hero from '../components/homepage/Hero'
 import { homepageQuery } from '../helpers/queries/queries'
 import { homepageQueryType } from '../helpers/queries/queryTypes'
-import sanityClient from '../sanity/sanity'
+import sanityClient from '../sanity'
 
 const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
   suspense: true,

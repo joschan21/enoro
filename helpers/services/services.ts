@@ -1,4 +1,4 @@
-import { urlFor } from '../../sanity/sanity'
+import { urlFor } from '../../sanity'
 
 export function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
