@@ -16,10 +16,10 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
         <Image
           quality={5}
           priority
-          width={2296}
-          height={668}
-          src='/bg.png'
-          className='opacity-50'
+          width={739}
+          height={215}
+          src='/hero_background.png'
+          className='opacity-50 blur-md'
           layout='fill'
           objectFit='cover'
           aria-hidden='true'
@@ -71,7 +71,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
               style={{ rotate: -6, scale: 0.8 }}
               animate={{ opacity: [0, 1], y: [150, 0] }}
               transition={{ delay: 0.75 }}>
-              <Image layout='fill' objectFit='contain' src='/pik8.png' alt='zauberer hamburg' />
+              <Image layout='fill' objectFit='contain' src='/card_front.png' alt='zauberer hamburg' />
             </m.div>
 
             <m.div
@@ -79,7 +79,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
               style={{ rotate: 6, scale: 0.8 }}
               animate={{ opacity: [0, 1], y: [150, 0] }}
               transition={{ delay: 1 }}>
-              <Image layout='fill' objectFit='contain' src='/back.png' alt='zauberer hamburg buchen' />
+              <Image layout='fill' objectFit='contain' src='/card_back.png' alt='zauberer hamburg buchen' />
             </m.div>
             <m.div
               whileInView={{ opacity: [0, 1], y: [150, 0] }}
@@ -87,9 +87,10 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
               <Image
                 width={860}
                 height={1249}
+                quality={100}
                 layout='responsive'
                 className='z-10'
-                src='/mainCard.png'
+                src='/card_main.png'
                 alt='zauberer elias noro hamburg'
               />
             </m.div>

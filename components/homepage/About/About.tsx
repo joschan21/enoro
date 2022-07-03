@@ -27,12 +27,12 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
 
   const dynamicImageSource = (index: number) => {
     const imgNumber = index % 3
-    return `/tab${imgNumber}.png`
+    return `/background_tab${imgNumber}.png`
   }
 
   return (
-    <section className='bg-darkblue border-b border-gray-700' id='about'>
-      <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
+    <section className='relative bg-darkblue border-b border-gray-700' id='about'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
         <AnimatePresence exitBeforeEnter>
           <div className='absolute inset-0 pointer-events-none'>
             <m.div
@@ -44,9 +44,10 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
               className='absolute inset-0 opacity-25 w-full h-full'>
               <Image
                 layout='fill'
-                width={2296}
-                height={668}
+                width={739}
+                height={215}
                 objectFit='cover'
+                className='blur-md'
                 src={`${dynamicImageSource(currentIndex)}`}
                 alt='Elias Noro Zauberer Hamburg'
               />
