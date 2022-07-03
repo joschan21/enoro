@@ -18,7 +18,7 @@ const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => 
     <section id='faq'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
         <div className='relative h-16 w-16'>
-          <Image src='/appearances_icon.png' width={191} height={191} layout='responsive' />
+          <Image src='/appearances_icon.png' width={191} height={191} layout='responsive' alt='Elias Noro Zauberer Hamburg'/>
         </div>
         <DynamicHeading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
         <div className=''>

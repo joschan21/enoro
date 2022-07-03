@@ -13,7 +13,18 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
   return (
     <section id='hero' className='relative z-[1] block overflow-hidden bg-[#0b1120] border-b border-gray-700'>
       <div id='test' className='absolute inset-0' aria-hidden={true}>
-        <Image priority src='/bg.png' className='opacity-50' layout='fill' aria-hidden='true' />
+        <Image
+          quality={5}
+          priority
+          width={2296}
+          height={668}
+          src='/bg.png'
+          className='opacity-50'
+          layout='fill'
+          objectFit='cover'
+          aria-hidden='true'
+          alt='Elias Noro Zauberer Hamburg'
+        />
         <svg className='opacity-[0.25]' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
           <defs>
             <pattern id='smallGrid' width='8' height='8' patternUnits='userSpaceOnUse'>

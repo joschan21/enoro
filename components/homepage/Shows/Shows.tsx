@@ -19,7 +19,12 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
     <section className='bg-verydark' id='shows'>
       <div className='relative py-8 sm:py-24 lg:py-16'>
         <div id='test' aria-hidden='true' className='absolute inset-0 z-0 pointer-events-none'>
-          <Image layout='fill' className='absolute inset-0 opacity-25' src='/tab2.png' alt='' />
+          <Image
+            layout='fill'
+            className='absolute inset-0 opacity-25'
+            src='/tab2.png'
+            alt='Elias Noro Zauberer Hamburg'
+          />
           <svg className='opacity-[0.25]' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
             <defs>
               <pattern id='smallGrid' width='8' height='8' patternUnits='userSpaceOnUse'>
@@ -36,9 +41,20 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
         </div>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='relative h-16 w-16'>
-            <Image src='/shows_icon.png' width={191} height={191} layout='responsive' />
+            <Image
+              src='/shows_icon.png'
+              width={191}
+              height={191}
+              layout='responsive'
+              alt='Elias Noro Zauberer Hamburg'
+            />
           </div>
-          <DynamicHeading theme='primary' smallheading={smallheading} heading={heading} subheading={subheading} />
+          <DynamicHeading
+            theme='primary'
+            smallheading={smallheading}
+            heading={heading}
+            subheading={subheading}
+          />
 
           <div className='relative z-10 mx-auto max-w-md text-center sm:max-w-3xl lg:max-w-7xl'>
             <div className='my-12'>
@@ -49,6 +65,7 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
                     className='group relative bg-black/10 backdrop-blur-[2px] border border-gray-800 rounded-lg flex flex-col overflow-hidden'>
                     <div className='aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96'>
                       <Image
+                        alt='Elias Noro Zauberer Hamburg'
                         layout='fill'
                         src={getUrl(show.image)}
                         className='w-full h-full object-center object-cover sm:w-full sm:h-full'
@@ -56,10 +73,10 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
                     </div>
                     <div className='flex-1 z-10 bg-black/80 backdrop-blur-sm p-4 space-y-2 flex flex-col'>
                       <h3 className='text-sm font-medium text-white'>
-                        <a>
+                        <div>
                           <span aria-hidden='true' className='absolute inset-0' />
                           {show.heading}
-                        </a>
+                        </div>
                       </h3>
                       <DynamicSanityText content={show.teaser} className='text-sm text-textcolor' />
                     </div>

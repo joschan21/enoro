@@ -17,13 +17,13 @@ const CallToAction: FC<CallToActionProps> = ({ heading = '', description = '', b
           className='relative pointer-events-none select-none grid grid-rows-1 grid-cols-1'
           aria-hidden='true'>
           <div className='relative row-start-1 col-start-1'>
-            <Image className='opacity-50' src='/hat.png' width={120} height={120} layout='fixed' />
+            <Image className='opacity-50' src='/hat.png' width={120} height={120} layout='fixed' alt='Elias Noro Zauberer Hamburg'/>
           </div>
           <m.div
             animate={{ rotate: 4 }}
             transition={{ repeat: Infinity, repeatType: 'reverse', duration: 2 }}
             className='relative origin-top-right sm:origin-bottom-right row-start-1 col-start-1'>
-            <Image className='opacity-50' src='/wand.png' width={120} height={120} layout='fixed' />
+            <Image className='opacity-50' src='/wand.png' width={120} height={120} layout='fixed' alt='Elias Noro Zauberer Hamburg'/>
           </m.div>
         </div>
         <div className='flex flex-col px-8 items-center'>

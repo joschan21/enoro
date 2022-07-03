@@ -66,7 +66,7 @@ const Home: FC<HomeProps> = ({ result }) => {
           emoji={header.emoji}
           largetext={header.bigtext}
         />
-        <Suspense fallback={`Loading...`}>
+        <Suspense fallback={<div className='bg-red-500 h-screen w-screen'>asd</div>}>
           <DynamicAbout
             categories={about.aboutCategories}
             heading={about.heading}

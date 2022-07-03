@@ -42,12 +42,19 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
               transition={{ delay: 0.25 }}
               exit={{ opacity: 0 }}
               className='absolute inset-0 opacity-25 w-full h-full'>
-              <Image layout='fill' src={`${dynamicImageSource(currentIndex)}`} alt='' />
+              <Image
+                layout='fill'
+                width={2296}
+                height={668}
+                objectFit='cover'
+                src={`${dynamicImageSource(currentIndex)}`}
+                alt='Elias Noro Zauberer Hamburg'
+              />
             </m.div>
           </div>
         </AnimatePresence>
         <div className='relative h-16 w-16'>
-          <Image src='/about_icon.png' width={191} height={191} layout='responsive' />
+          <Image src='/about_icon.png' width={191} height={191} layout='responsive' alt='zauberer hamburg' />
         </div>
         <Heading theme='purple' smallheading={smallheading} heading={heading} subheading={subheading} />
         <Slider categories={categories} currentIndex={currentIndex} moveTo={moveTo} />

@@ -43,12 +43,16 @@ const Footer: FC<FooterProps> = ({}) => {
         </nav>
         <div className='mt-8 flex justify-center space-x-6'>
           {icons.map((icon, index) => (
-            <a key={index} href={icon.link} className='text-gray-500 hover:text-gray-400 transition'>
+            <a
+              key={index}
+              aria-label={icon.link}
+              href={icon.link}
+              className='text-gray-500 hover:text-gray-400 transition'>
               <icon.icon className='h-6 w-6' aria-hidden='true' />
             </a>
           ))}
         </div>
-        <p className='mt-8 text-center text-base text-gray-500'>
+        <p className='mt-8 text-center text-base text-gray-400'>
           &copy; 2022 Elias Noro, alle Rechte vorbehalten.
         </p>
       </div>
