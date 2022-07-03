@@ -1,6 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Dispatch, FC, Fragment, SetStateAction } from 'react'
-import { HiCheck } from 'react-icons/hi'
 import { appearance } from '../../../helpers/queries/queryTypes'
 import SanityText from '../../common/SanityText'
 
@@ -11,6 +10,7 @@ interface DetailsModalProps {
 }
 
 const DetailsModal: FC<DetailsModalProps> = ({ appearance, setOpen, open }) => {
+  console.log("modal rendered")
   return (
     <>
       <Transition.Root show={open} as={Fragment}>

@@ -1,14 +1,16 @@
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { FC, useState } from 'react'
 import { HiArrowRight } from 'react-icons/hi'
 import { appearance } from '../../../helpers/queries/queryTypes'
 import { getUrl } from '../../../helpers/services/services'
 import SanityText from '../../common/SanityText'
-import DetailsModal from './DetailsModal'
 
 interface AppearancesListProps {
   appearances: appearance[]
 }
+
+const DynamicModal = dynamic(() => import('./DetailsModal'))
 
 const colLookup = ['lg:grid-cols-1', 'lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4']
 const AppearancesList: FC<AppearancesListProps> = ({ appearances }) => {
@@ -19,7 +21,7 @@ const AppearancesList: FC<AppearancesListProps> = ({ appearances }) => {
 
   return (
     <>
-      <DetailsModal appearance={selectedAppearance} setOpen={setOpen} open={open} />
+      <DynamicModal appearance={selectedAppearance} setOpen={setOpen} open={open} />
 
       <div
         className={`grid grid-cols-1 sm:grid-cols-2 gap-y-4 ${colLookup[amt]} sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 py-8 sm:py-12 lg:py-14`}>

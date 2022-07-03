@@ -4,6 +4,7 @@ import { HiMail, HiPhone } from 'react-icons/hi'
 interface ContactFormProps {}
 
 const ContactForm: FC<ContactFormProps> = ({}) => {
+  console.log("contact form renderd")
   return (
     <section className='relative bg-verydark' id='contact'>
       <div className='absolute inset-0'>

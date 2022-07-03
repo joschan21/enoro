@@ -1,29 +1,42 @@
+//@ts-nocheck
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { FC, Suspense } from 'react'
+import PreDynamicState from '../components/common/PreDynamicState'
 import Hero from '../components/homepage/Hero'
 import { homepageQuery } from '../helpers/queries/queries'
 import { homepageQueryType } from '../helpers/queries/queryTypes'
 import sanityClient from '../sanity'
 
-const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
-  suspense: true,
-})
-const DynamicAppearances = dynamic(() => import('../components/homepage/Appearances/Appearances'), {
-  suspense: true,
-})
-const DynamicCallToAction = dynamic(() => import('../components/homepage/CallToAction'), {
-  suspense: true,
-})
-const DynamicShows = dynamic(() => import('../components/homepage/Shows/Shows'), {
-  suspense: true,
-})
-const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
-  suspense: true,
-})
-const DynamicContactForm = dynamic(() => import('../components/common/ContactForm'), {
-  suspense: true,
-})
+// const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
+//   ssr: false,
+//   loading: () => <PreDynamicState />,
+// })
+
+const DynamicAbout = dynamic(
+  () => import('../components/homepage/About/About').then((result) => result.default),
+  { ssr: false }
+)
+const DynamicAppearances = dynamic(
+  () => import('../components/homepage/Appearances/Appearances').then((result) => result.default),
+  { ssr: false }
+)
+const DynamicCallToAction = dynamic(
+  () => import('../components/homepage/CallToAction').then((result) => result.default),
+  { ssr: false }
+)
+const DynamicShows = dynamic(
+  () => import('../components/homepage/Shows/Shows').then((result) => result.default),
+  { ssr: false }
+)
+const DynamicFaq = dynamic(
+  () => import('../components/homepage/Faq/Faq').then((result) => result.default),
+  { ssr: false }
+)
+const DynamicContactForm = dynamic(
+  () => import('../components/common/ContactForm').then((result) => result.default),
+  { ssr: false }
+)
 
 export async function getStaticProps() {
   const result: homepageQueryType = await sanityClient.fetch(homepageQuery)

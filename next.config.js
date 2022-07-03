@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
+
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: true,
+// })
+
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
