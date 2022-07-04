@@ -16,9 +16,9 @@ const DynamicSanityText = dynamic(() => import('../../common/SanityText'))
 
 const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => {
   return (
-    <section className='bg-verydark' id='shows'>
-      <div className='relative py-8 sm:py-24 lg:py-16'>
-        <div id='test' aria-hidden='true' className='absolute inset-0 z-0 pointer-events-none'>
+    <section className='relative bg-verydark min-h-screen flex justify-center items-center' id='shows'>
+      <div className='py-8 sm:py-24 lg:py-16'>
+        <div id='fade-down' aria-hidden='true' className='absolute inset-0 z-0 pointer-events-none'>
           <Image
             layout='fill'
             className='absolute inset-0 opacity-25'
@@ -62,7 +62,7 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
                 {shows.map((show) => (
                   <div
                     key={show._id}
-                    className='group relative bg-black/10 backdrop-blur-[2px] border border-gray-800 rounded-lg flex flex-col overflow-hidden'>
+                    className='group relative bg-black/10 backdrop-blur-[2px] border border-bordercolor rounded-lg flex flex-col overflow-hidden'>
                     <div className='aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96'>
                       <Image
                         alt='Elias Noro Zauberer Hamburg'

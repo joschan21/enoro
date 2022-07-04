@@ -15,10 +15,25 @@ const DynamicHeading = dynamic(() => import('../../common/Heading'))
 
 const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => {
   return (
-    <section id='faq'>
+    <section className='relative min-h-screen flex justify-center items-center' id='faq'>
+      <div className='absolute inset-0' aria-hidden='true'>
+        <Image
+          quality={1}
+          src='/background_tab0.png'
+          objectFit='cover'
+          className='opacity-[0.15] sm:opacity-25 blur-sm'
+          layout='fill'
+        />
+      </div>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
         <div className='relative h-16 w-16'>
-          <Image src='/appearances_icon.png' width={191} height={191} layout='responsive' alt='Elias Noro Zauberer Hamburg'/>
+          <Image
+            src='/appearances_icon.png'
+            width={191}
+            height={191}
+            layout='responsive'
+            alt='Elias Noro Zauberer Hamburg'
+          />
         </div>
         <DynamicHeading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
         <div className=''>

@@ -20,7 +20,7 @@ const icons = [
 
 const Footer: FC<FooterProps> = ({}) => {
   return (
-    <footer className='bg-black'>
+    <footer className='bg-black min-h-60 flex items-center'>
       <div className='max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8'>
         <nav className='-mx-5 -my-2 flex flex-wrap justify-center' aria-label='Footer'>
           <div key='impressum' className='px-5 py-2'>

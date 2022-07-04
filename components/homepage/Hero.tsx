@@ -11,8 +11,10 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
   return (
-    <section id='hero' className='relative z-[1] block overflow-hidden bg-[#0b1120] border-b border-gray-700'>
-      <div id='test' className='absolute inset-0' aria-hidden={true}>
+    <section
+      id='hero'
+      className='relative z-[1] block overflow-hidden bg-[#0b1120] border-b border-bordercolor'>
+      <div id='fade-up' className='absolute inset-0' aria-hidden={true}>
         <Image
           quality={5}
           priority
@@ -41,27 +43,26 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
       </div>
       <div className='flex flex-col md:flex-row lg:p-0 w-full'>
         <div className='mt-12 lg:mt-24 xl:mt-32 flex-[0.6]'>
-          <m.div
-            className='flex flex-col items-center md:items-end px-5 space-y-5 self-center text-start md:flex-[0.65] lg:space-y-10'
-            whileInView={{ opacity: [0, 1], x: [-100, 0] }}>
-            <div
-              id='greeting'
-              className='w-fit py-6 px-6 flex items-center bg-boxgrey outline outline-1 outline-primary rounded-lg'>
+          <div className='flex flex-col items-center md:items-end px-5 space-y-5 self-center text-start md:flex-[0.65] lg:space-y-10'>
+            <m.div
+              whileInView={{ opacity: [0, 1], x: [-100, 0] }}
+              className='w-fit bg-[#00000080] py-6 px-6 flex items-center bg-boxgrey outline outline-1 outline-primary rounded-lg'>
               <span className='text-3xl sm:text-4xl md:text-5xl'>{emoji}</span>
               <div className='ml-5'>
                 <p className='text-sm uppercase text-textcolor mb-1'>{greeting}</p>
                 <h1 className='text-5xl md:text-6xl font-semibold text-white'>{largetext}</h1>
               </div>
-            </div>
+            </m.div>
 
-            <div
-              id='greeting'
-              className='bg-boxgrey w-fit py-2 px-2 flex items-center justify-center rounded-lg outline outline-1 outline-bordercolor'>
+            <m.div
+              whileInView={{ opacity: [0, 1], x: [-100, 0] }}
+              transition={{ delay: 0.2 }}
+              className='bg-[#00000080] w-fit py-2 px-2 flex items-center justify-center rounded-lg outline outline-1 outline-bordercolor'>
               <div className='p-2 flex flex-col items-end'>
                 <p className='text-sm uppercase text-textcolor'>{description}</p>
               </div>
-            </div>
-          </m.div>
+            </m.div>
+          </div>
         </div>
 
         <div className='relative -mt-10 sm:-mt-28 md:mt-0 md:flex-1 flex justify-center xl:justify-start w-full'>

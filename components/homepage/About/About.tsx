@@ -31,7 +31,9 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
   }
 
   return (
-    <section className='relative bg-darkblue border-b border-gray-700' id='about'>
+    <section
+      className='relative min-h-screen flex justify-center items-center bg-darkblue border-b border-bordercolor'
+      id='about'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
         <AnimatePresence exitBeforeEnter>
           <div className='absolute inset-0 pointer-events-none'>

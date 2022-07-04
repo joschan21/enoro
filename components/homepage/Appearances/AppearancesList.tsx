@@ -35,7 +35,7 @@ const AppearancesList: FC<AppearancesListProps> = ({ appearances }) => {
           return (
             <div
               key={appearance._id}
-              className='group relative backdrop-blur-[2px] border border-gray-800 rounded-lg flex flex-col overflow-hidden'>
+              className='group relative backdrop-blur-[2px] border border-bordercolor rounded-lg flex flex-col overflow-hidden'>
               <div className='relative aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75'>
                 <Image
                   alt='Elias Noro Zauberer Hamburg'

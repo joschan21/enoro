@@ -12,7 +12,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <Disclosure
       as='nav'
-      className='bg-verydark border-b border-gray-800 backdrop-blur-sm shadow fixed top-0 left-0 right-0 z-50'>
+      className='bg-verydark border-b border-bordercolor backdrop-blur-sm shadow fixed top-0 left-0 right-0 z-50'>
       {({ open }) => (
         <>
           <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>

@@ -15,27 +15,27 @@ import sanityClient from '../sanity'
 
 const DynamicAbout = dynamic(
   () => import('../components/homepage/About/About').then((result) => result.default),
-  { ssr: false }
+  { ssr: false, loading: () => <PreDynamicState /> }
 )
 const DynamicAppearances = dynamic(
   () => import('../components/homepage/Appearances/Appearances').then((result) => result.default),
-  { ssr: false }
+  { ssr: false, loading: () => <PreDynamicState /> }
 )
 const DynamicCallToAction = dynamic(
   () => import('../components/homepage/CallToAction').then((result) => result.default),
-  { ssr: false }
+  { ssr: false, loading: () => <PreDynamicState /> }
 )
 const DynamicShows = dynamic(
   () => import('../components/homepage/Shows/Shows').then((result) => result.default),
-  { ssr: false }
+  { ssr: false, loading: () => <PreDynamicState /> }
 )
-const DynamicFaq = dynamic(
-  () => import('../components/homepage/Faq/Faq').then((result) => result.default),
-  { ssr: false }
-)
+const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq').then((result) => result.default), {
+  ssr: false,
+  loading: () => <PreDynamicState />,
+})
 const DynamicContactForm = dynamic(
   () => import('../components/common/ContactForm').then((result) => result.default),
-  { ssr: false }
+  { ssr: false, loading: () => <PreDynamicState /> }
 )
 
 export async function getStaticProps() {

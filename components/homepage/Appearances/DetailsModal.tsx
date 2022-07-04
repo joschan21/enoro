@@ -10,7 +10,7 @@ interface DetailsModalProps {
 }
 
 const DetailsModal: FC<DetailsModalProps> = ({ appearance, setOpen, open }) => {
-  console.log("modal rendered")
+  console.log('modal rendered')
   return (
     <>
       <Transition.Root show={open} as={Fragment}>
@@ -55,7 +55,7 @@ const DetailsModal: FC<DetailsModalProps> = ({ appearance, setOpen, open }) => {
                 <div className='mt-5 sm:mt-6'>
                   <button
                     type='button'
-                    className='inline-flex justify-center w-full rounded-md border border-gray-700 shadow-sm px-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 sm:text-sm'
+                    className='inline-flex justify-center w-full rounded-md border border-bordercolor shadow-sm px-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 sm:text-sm'
                     onClick={() => setOpen(false)}>
                     Schließen
                   </button>

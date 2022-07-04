@@ -6,7 +6,7 @@ interface ContactFormProps {}
 const ContactForm: FC<ContactFormProps> = ({}) => {
   console.log("contact form renderd")
   return (
-    <section className='relative bg-verydark' id='contact'>
+    <section className='relative bg-verydark min-h-screen flex justify-center items-center' id='contact'>
       <div className='absolute inset-0'>
         <div className='absolute inset-y-0 left-0 w-1/2 bg-[#090f1c]' />
       </div>
@@ -45,7 +45,7 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
             </dl>
           </div>
         </div>
-        <div className='bg-verydark py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12'>
+        <div className='bg-verydark border border-bordercolor py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12'>
           <div className='max-w-lg mx-auto lg:max-w-none'>
             <form action='#' method='POST' className='grid grid-cols-1 gap-y-6'>
               <div>
@@ -56,7 +56,7 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
                   type='text'
                   name='full-name'
                   autoComplete='name'
-                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-indigo-500 focus:border-indigo-500 border-gray-700 rounded-md'
+                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-primary focus:border-primary border-bordercolor rounded-md'
                   placeholder='Full name'
                 />
               </div>
@@ -69,7 +69,7 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
                   name='email'
                   type='email'
                   autoComplete='email'
-                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-indigo-500 focus:border-indigo-500 border-gray-700 rounded-md'
+                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-primary focus:border-primary border-bordercolor rounded-md'
                   placeholder='Email'
                 />
               </div>
@@ -82,7 +82,7 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
                   name='phone'
                   id='phone'
                   autoComplete='tel'
-                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-indigo-500 focus:border-indigo-500 border-gray-700 rounded-md'
+                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-primary focus:border-primary border-bordercolor rounded-md'
                   placeholder='Tel. (optional)'
                 />
               </div>
@@ -94,7 +94,7 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
                   id='message'
                   name='message'
                   rows={4}
-                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-indigo-500 focus:border-indigo-500 border border-gray-700 rounded-md'
+                  className='block bg-[#090f1c] w-full shadow-sm py-3 px-4 placeholder-textcolor focus:ring-primary focus:border-primary border border-bordercolor rounded-md'
                   placeholder='Nachricht'
                   defaultValue={''}
                 />
