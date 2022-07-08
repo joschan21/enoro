@@ -18,8 +18,6 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
         <Image
           quality={5}
           priority
-          width={739}
-          height={215}
           src='/hero_background.png'
           className='opacity-50 blur-md'
           layout='fill'

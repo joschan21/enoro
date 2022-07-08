@@ -6,12 +6,12 @@ import { HiMenu, HiX } from 'react-icons/hi'
 import { nav } from '../../helpers/config/config'
 import DynamicLink from '../common/DynamicLink'
 
-const Navbar: FC= () => {
+const Navbar: FC = () => {
   return (
     <Disclosure
       as='nav'
-      className='bg-verydark border-b border-bordercolor backdrop-blur-sm shadow fixed top-0 left-0 right-0 z-50'>
-      {({ open }) => (
+      className='bg-verydark border-b border-bordercolor backdrop-blur-sm shadow fixed top-0 left-0 right-0 z-[60]'>
+      {({ open, close }) => (
         <>
           <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
             <div className='relative flex items-center justify-between h-16'>
@@ -71,8 +71,20 @@ const Navbar: FC= () => {
                * Mobile nav items
                */}
 
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               {nav.map((navItem) => (
+                <Disclosure.Button key={navItem.label} as='div'>
+                  <DynamicLink
+                    linkTo={navItem.name}
+                    text={navItem.label}
+                    className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
+                    activeClassName='bg-black/80 text-white'
+                    onClick={close}
+                  />
+                </Disclosure.Button>
+              ))}
+
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              {/* {nav.map((navItem) => (
                 <DynamicLink
                   key={navItem.label}
                   linkTo={navItem.name}
@@ -80,7 +92,7 @@ const Navbar: FC= () => {
                   className='text-gray-300 hover:bg-black/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
                   activeClassName='bg-black/80 text-white'
                 />
-              ))}
+              ))} */}
             </div>
           </Disclosure.Panel>
         </>
@@ -90,3 +102,5 @@ const Navbar: FC= () => {
 }
 
 export default Navbar
+
+// 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'

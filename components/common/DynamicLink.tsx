@@ -8,9 +8,10 @@ interface DynamicLinkProps {
   text: string
   className: string
   activeClassName?: string
+  onClick?: any
 }
 
-const DynamicLink: FC<DynamicLinkProps> = ({ linkTo, text, className, activeClassName }) => {
+const DynamicLink: FC<DynamicLinkProps> = ({ linkTo, text, className, activeClassName, onClick }) => {
   // Hooks
   const router = useRouter()
 
@@ -22,6 +23,7 @@ const DynamicLink: FC<DynamicLinkProps> = ({ linkTo, text, className, activeClas
       {userIsOnHomepage ? (
         <ReactScrollLink
           key={linkTo}
+          onClick={onClick}
           href={linkTo}
           spy={true}
           smooth={true}
@@ -32,10 +34,8 @@ const DynamicLink: FC<DynamicLinkProps> = ({ linkTo, text, className, activeClas
           {text}
         </ReactScrollLink>
       ) : (
-        <Link prefetch={false} href={`/#${linkTo}`} key={linkTo}>
-          <a className={className}>
-            {text}
-          </a>
+        <Link prefetch={false} href={`/#${linkTo}`} key={linkTo} onClick={onClick}>
+          <a className={className}>{text}</a>
         </Link>
       )}
     </React.Fragment>
