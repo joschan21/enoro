@@ -8,7 +8,7 @@ interface DynamicLinkProps {
   text: string
   className: string
   activeClassName?: string
-  onClick?: any
+  onClick?: () => void
 }
 
 const DynamicLink: FC<DynamicLinkProps> = ({ linkTo, text, className, activeClassName, onClick }) => {
