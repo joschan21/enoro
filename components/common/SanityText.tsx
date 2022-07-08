@@ -11,7 +11,7 @@ const SanityText: FC<SanityTextProps> = ({ content, className }) => {
   return (
     <PortableText
       serializers={{
-        more: (props: any) => <br />,
+        more: () => <br />,
       }}
       content={content}
       projectId={projectId}

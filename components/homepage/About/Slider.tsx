@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 import { aboutCategory } from '../../../helpers/queries/queryTypes'
 import { classNames } from '../../../helpers/services/services'
 import Selector from './Selector'
@@ -10,25 +10,25 @@ interface SliderProps {
 }
 
 const Slider: FC<SliderProps> = ({ categories, currentIndex, moveTo }) => {
-  // const tabs = categories.map((category) => ({ ...category, current: false }))
-  // tabs[0].current = true
-
   const [tabs, setTabs] = useState(categories.map((category) => ({ ...category, current: false })))
+
+  const goToTab = useCallback(
+    (index: number) => {
+      moveTo(index)
+
+      const newTabs = tabs.map((tab, i) =>
+        i === index ? { ...tab, current: true } : { ...tab, current: false }
+      )
+      setTabs(newTabs)
+    },
+    [moveTo, tabs]
+  )
 
   useEffect(() => {
     goToTab(0)
-  }, [])
+  }, [goToTab])
 
   const active = tabs[currentIndex].smallheading
-
-  const goToTab = (index: number) => {
-    moveTo(index)
-
-    const newTabs = tabs.map((tab, i) =>
-      i === index ? { ...tab, current: true } : { ...tab, current: false }
-    )
-    setTabs(newTabs)
-  }
 
   return (
     <div className='mt-8'>
@@ -64,4 +64,3 @@ const Slider: FC<SliderProps> = ({ categories, currentIndex, moveTo }) => {
 }
 
 export default Slider
-

@@ -1,10 +1,21 @@
-import { FC } from 'react'
+import { FC, FormEvent } from 'react'
 import { HiMail, HiPhone } from 'react-icons/hi'
 
-interface ContactFormProps {}
+const ContactForm: FC = () => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    // const formData = {}
+    // Array.from(e.currentTarget.elements).forEach((field) => {
+    //   if (!field.name) return
+    //   formData[field.name] = field.value
+    // })
 
-const ContactForm: FC<ContactFormProps> = ({}) => {
-  console.log("contact form renderd")
+    // fetch('/api/mail', {
+    //   method: 'post',
+    //   body: JSON.stringify(formData),
+    // })
+  }
+
   return (
     <section className='relative bg-verydark min-h-screen flex justify-center items-center' id='contact'>
       <div className='absolute inset-0'>
@@ -47,7 +58,7 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
         </div>
         <div className='bg-verydark border border-bordercolor py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12'>
           <div className='max-w-lg mx-auto lg:max-w-none'>
-            <form action='#' method='POST' className='grid grid-cols-1 gap-y-6'>
+            <form onSubmit={(e) => handleSubmit(e)} className='grid grid-cols-1 gap-y-6'>
               <div>
                 <label htmlFor='full-name' className='sr-only'>
                   Name

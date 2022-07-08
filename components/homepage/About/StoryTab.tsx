@@ -5,10 +5,9 @@ import SanityText from '../../common/SanityText'
 
 interface StoryTabProps {
   currentCategory: aboutCategory
-  currentIndex: number
 }
 
-const StoryTab: FC<StoryTabProps> = ({ currentCategory, currentIndex }) => {
+const StoryTab: FC<StoryTabProps> = ({ currentCategory }) => {
   // Definitions
   const smallheading = currentCategory.smallheading
   const heading = currentCategory.heading

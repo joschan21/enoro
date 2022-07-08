@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { FC } from 'react'
 import { question } from '../../../helpers/queries/queryTypes'
-import Heading from '../../common/Heading'
 
 interface FaqProps {
   heading: string
@@ -22,6 +21,7 @@ const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => 
           src='/background_tab0.png'
           objectFit='cover'
           className='opacity-[0.15] sm:opacity-25 blur-sm'
+          alt='Elias Noro Zauberer Hamburg'
           layout='fill'
         />
       </div>

@@ -1,8 +1,6 @@
 import { FC } from 'react'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 
-interface FooterProps {}
-
 const icons = [
   {
     icon: FaTwitter,
@@ -18,7 +16,7 @@ const icons = [
   },
 ]
 
-const Footer: FC<FooterProps> = ({}) => {
+const Footer: FC = () => {
   return (
     <footer className='bg-black min-h-60 flex items-center'>
       <div className='max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8'>

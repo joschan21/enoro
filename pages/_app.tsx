@@ -1,7 +1,7 @@
-import '../styles/globals.css'
+import { LazyMotion } from 'framer-motion'
 import type { AppProps } from 'next/app'
-import { domAnimation, LazyMotion } from 'framer-motion'
 import Layout from '../components/global/Layout'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const loadFramerMotionFeatures = async () => {

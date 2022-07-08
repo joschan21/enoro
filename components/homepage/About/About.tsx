@@ -63,11 +63,7 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
         <Slider categories={categories} currentIndex={currentIndex} moveTo={moveTo} />
         <div className='py-12'>
           <AnimatePresence exitBeforeEnter>
-            <StoryTab
-              key={currentSmallheading}
-              currentIndex={currentIndex}
-              currentCategory={currentCategory}
-            />
+            <StoryTab key={currentSmallheading} currentCategory={currentCategory} />
           </AnimatePresence>
         </div>
       </div>

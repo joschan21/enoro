@@ -6,9 +6,7 @@ import { HiMenu, HiX } from 'react-icons/hi'
 import { nav } from '../../helpers/config/config'
 import DynamicLink from '../common/DynamicLink'
 
-interface NavbarProps {}
-
-const Navbar: FC<NavbarProps> = ({}) => {
+const Navbar: FC= () => {
   return (
     <Disclosure
       as='nav'

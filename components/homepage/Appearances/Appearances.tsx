@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { FC } from 'react'
 import { appearance } from '../../../helpers/queries/queryTypes'
@@ -11,9 +10,6 @@ interface AppearancesProps {
   subheading: string
   appearances: appearance[]
 }
-
-const DynamicHeading = dynamic(() => import('../../common/Heading'))
-const DynamicAppearancesList = dynamic(() => import('./AppearancesList'))
 
 const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, appearances }) => {
   return (
