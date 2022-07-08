@@ -26,7 +26,7 @@ const Slider: FC<SliderProps> = ({ categories, currentIndex, moveTo }) => {
 
   useEffect(() => {
     goToTab(0)
-  }, [goToTab])
+  }, [])
 
   const active = tabs[currentIndex].smallheading
 
