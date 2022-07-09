@@ -1,12 +1,15 @@
-import { FC, FormEvent, useState } from 'react'
-import { HiMail, HiPhone } from 'react-icons/hi'
 import emailjs from '@emailjs/browser'
+import { FC, FormEvent, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+import { HiMail, HiPhone } from 'react-icons/hi'
+import { SpinnerCircular } from 'spinners-react'
 
 const ContactForm: FC = () => {
   const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
 
     try {
       await emailjs.sendForm('default_service', 'template_5eilv88', e.currentTarget, 'z8ulsGdQZZONVgDS_')
@@ -17,7 +20,9 @@ const ContactForm: FC = () => {
       setSuccess(true)
       toast.success('Danke für Ihre Nachricht!')
     } catch (error) {
-      toast.success('Nachricht konnte nicht gesendet werden.')
+      toast.error('Nachricht konnte nicht gesendet werden.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -65,7 +70,7 @@ const ContactForm: FC = () => {
           </div>
           <div className='bg-verydark border border-bordercolor py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12'>
             <div className='max-w-lg mx-auto lg:max-w-none'>
-              {success && <p className='py-3'>Vielen Dank für Ihre Nachricht.</p>}
+              {success && <p className='py-3 text-primary font-semibold'>Vielen Dank für Ihre Nachricht.</p>}
               <form id='contact-form' onSubmit={(e) => handleSubmit(e)} className='grid grid-cols-1 gap-y-6'>
                 <div>
                   <label htmlFor='full-name' className='sr-only'>
@@ -123,7 +128,16 @@ const ContactForm: FC = () => {
                   <button
                     type='submit'
                     className='inline-flex justify-center py-3 px-6 shadow-sm text-base font-medium rounded-md border border-primary text-primary hover:bg-gray-800'>
-                    Senden
+                    {loading ? (
+                      <SpinnerCircular
+                        size={25}
+                        color='#38bdf8'
+                        className='mx-3.5'
+                        secondaryColor='rgba(56, 189, 248, 0.3)'
+                      />
+                    ) : (
+                      'Senden'
+                    )}
                   </button>
                 </div>
               </form>
