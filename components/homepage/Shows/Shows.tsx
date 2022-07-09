@@ -22,7 +22,7 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
           <Image
             layout='fill'
             className='absolute inset-0 opacity-25'
-            src='/tab2.png'
+            src='/background_tab2.png'
             alt='Elias Noro Zauberer Hamburg'
           />
           <svg className='opacity-[0.25]' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
