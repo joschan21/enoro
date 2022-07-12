@@ -83,7 +83,7 @@ const Navbar: FC = () => {
                 </Disclosure.Button>
               ))}
 
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-color hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               {/* {nav.map((navItem) => (
                 <DynamicLink
                   key={navItem.label}

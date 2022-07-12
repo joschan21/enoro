@@ -14,8 +14,8 @@ const DynamicHeading = dynamic(() => import('../../common/Heading'))
 
 const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => {
   return (
-    <section className='relative min-h-screen flex justify-center items-center' id='faq'>
-      <div className='absolute inset-0' aria-hidden='true'>
+    <section className='relative' id='faq'>
+      <div className='absolute inset-0 pointer-events-none' aria-hidden='true'>
         <Image
           quality={1}
           src='/background_tab0.png'
@@ -36,16 +36,15 @@ const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => 
           />
         </div>
         <DynamicHeading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
-        <div className=''>
-          <dl className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
-            {questions.map((question) => (
-              <div key={question._id}>
-                <dt className='text-base font-medium text-gray-300'>{question.question}</dt>
-                <dd className='mt-3 text-sm text-textcolor'>{question.answer}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+
+        <dl className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
+          {questions.map((question) => (
+            <div key={question._id}>
+              <dt className='text-base font-medium text-white'>{question.question}</dt>
+              <dd className='mt-3 text-sm text-textcolor'>{question.answer}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   )

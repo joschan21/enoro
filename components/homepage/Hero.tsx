@@ -88,6 +88,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
                 height={1249}
                 quality={100}
                 layout='responsive'
+                priority
                 className='z-10'
                 src='/card_main.png'
                 alt='zauberer elias noro hamburg'

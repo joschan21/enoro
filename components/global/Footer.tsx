@@ -38,7 +38,7 @@ const Footer: FC = () => {
               key={index}
               aria-label={icon.link}
               href={icon.link}
-              className='text-gray-500 hover:text-gray-400 transition'>
+              className='text-color hover:text-gray-400 transition'>
               <icon.icon className='h-6 w-6' aria-hidden='true' />
             </a>
           ))}
