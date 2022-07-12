@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { urlFor } from '../../sanity'
 
 export function classNames(...classes: any) {
@@ -27,4 +28,19 @@ export const getHeight = (img: string) => {
   const dimensions = getDimensions(img)
   const height = parseInt(dimensions.substring(dimensions.indexOf('x') + 1))
   return height
+}
+
+export const getImg = (img: string | JSX.Element) => {
+  if (typeof img === 'string') {
+    return (
+      <div className='relative w-12 h-12 sm:w-16 sm:h-16' aria-hidden='true'>
+        <Image src={img} layout='responsive' height={128} width={128} alt='decorative_icon' />
+      </div>
+    )
+  } else
+    return (
+      <div aria-hidden='true' className='w-16 h-16 flex justify-center items-center'>
+        {img}
+      </div>
+    )
 }

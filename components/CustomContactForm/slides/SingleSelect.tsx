@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import React, { Dispatch, FC, SetStateAction } from 'react'
+import { getImg } from '../../../helpers/services/services'
 import { option, SingleSelectAnswer } from '../typings'
 
 interface SingleSelectProps {
@@ -49,23 +49,6 @@ const SingleSelect: FC<SingleSelectProps> = ({
     }
 
     slideNext()
-  }
-
-  const getImg = (img: string | JSX.Element) => {
-    console.log('inside getimd')
-    console.log(typeof img)
-    if (typeof img === 'string') {
-      return (
-        <div className='relative w-12 h-12 sm:w-16 sm:h-16' aria-hidden='true'>
-          <Image src={img} layout='responsive' height={128} width={128} alt='decorative_icon' />
-        </div>
-      )
-    } else
-      return (
-        <div aria-hidden='true' className='w-16 h-16 flex justify-center items-center'>
-          {img}
-        </div>
-      )
   }
 
   return (

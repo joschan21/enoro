@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { getImg } from '../../../helpers/services/services'
 import { option, SingleSelectAnswer } from '../typings'
 
 interface MultipleSelectProps {
@@ -67,23 +67,6 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
       }
     }
   }, [selectedIndices])
-
-  const getImg = (img: string | JSX.Element) => {
-    console.log('inside getimd')
-    console.log(typeof img)
-    if (typeof img === 'string') {
-      return (
-        <div className='relative w-12 h-12 sm:w-16 sm:h-16' aria-hidden='true'>
-          <Image src={img} layout='responsive' height={128} width={128} alt='decorative_icon' />
-        </div>
-      )
-    } else
-      return (
-        <div aria-hidden='true' className='w-16 h-16 flex justify-center items-center'>
-          {img}
-        </div>
-      )
-  }
 
   /**
    * If all options have been checked || max no. of options are checked, switch to next slide

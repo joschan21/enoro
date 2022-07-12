@@ -56,7 +56,6 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
 
       if (response.status === 200) {
         slideNext()
-        toast.success('Vielen Dank für Ihre Nachricht.')
       } else {
         toast.error('Fehler beim Senden der Nachricht.')
       }
