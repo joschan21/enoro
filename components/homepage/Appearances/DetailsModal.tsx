@@ -10,7 +10,6 @@ interface DetailsModalProps {
 }
 
 const DetailsModal: FC<DetailsModalProps> = ({ appearance, setOpen, open }) => {
-  console.log('modal rendered')
   return (
     <>
       <Transition.Root show={open} as={Fragment}>

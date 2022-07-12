@@ -40,7 +40,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
         </svg>
       </div>
       <div className='flex flex-col md:flex-row lg:p-0 w-full'>
-        <div className='mt-12 lg:mt-24 xl:mt-32 flex-[0.6]'>
+        <div className='mt-28 lg:mt-32 flex-[0.6]'>
           <div className='flex flex-col items-center md:items-end px-5 space-y-5 self-center text-start md:flex-[0.65] lg:space-y-10'>
             <m.div
               whileInView={{ opacity: [0, 1], x: [-100, 0] }}
@@ -55,7 +55,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
             <m.div
               whileInView={{ opacity: [0, 1], x: [-100, 0] }}
               transition={{ delay: 0.2 }}
-              className='bg-[#00000080] w-fit py-2 px-2 flex items-center justify-center rounded-lg outline outline-1 outline-bordercolor'>
+              className='bg-[#00000080] w-fit py-2 px-2 sm:mr-4 flex items-center justify-center rounded-lg outline outline-1 outline-bordercolor'>
               <div className='p-2 flex flex-col items-end'>
                 <p className='text-sm uppercase text-textcolor'>{description}</p>
               </div>
