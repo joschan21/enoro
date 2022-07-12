@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .desktop-card {
+    @apply min-w-[180px] cursor-pointer sm:flex sm:flex-col sm:items-center sm:gap-2 rounded-lg bg-darkblue border-2 transition p-8 text-center hover:shadow-md hover:border-primary shadow-sm border-bordercolor;
+  }
+  .desktop-card-selected {
+    @apply shadow-md border-primary;
+  }
+  .mobile-card {
+    @apply flex gap-4 items-center my-2 p-4 cursor-pointer rounded-lg bg-darkblue border shadow-sm border-bordercolor;
+  }
+  .mobile-card-selected {
+    @apply shadow-md border-primary;
+  }
+  .contact-form-background {
+    @apply bg-verydark p-0.5 sm:p-0;
+  }
+  .title-color {
+    @apply text-white;
+  }
+  .text-color {
+    @apply text-textcolor;
+  }
+}
+
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,

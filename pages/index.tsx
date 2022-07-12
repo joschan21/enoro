@@ -29,7 +29,7 @@ const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
   ssr: false,
   loading: () => <PreDynamicState />,
 })
-const DynamicContactForm = dynamic(() => import('../components/common/ContactForm'), {
+const DynamicContact = dynamic(() => import('../components/homepage/Contact'), {
   ssr: false,
   loading: () => <PreDynamicState />,
 })
@@ -88,7 +88,7 @@ const Home: FC<HomeProps> = ({ result }) => {
             smallheading={faq.smallheading}
             subheading={faq.subheading}
           />
-          <DynamicContactForm />
+          <DynamicContact />
         </Suspense>
       </main>
     </>
