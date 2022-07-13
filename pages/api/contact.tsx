@@ -45,7 +45,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   })
 
   const mailOptions = {
-    from: 'Elias Noro Website <admin@praxis-bulkamp.com>',
+    from: 'Elias Noro Booking <booking@eliasnoro.de',
     to: 'neske.joscha@gmail.com',
     subject: 'Neue Auftritt-Anfrage!',
     html: output,
@@ -53,6 +53,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   transporter.sendMail(mailOptions, (error) => {
     if (error) {
+      console.log(error)
       return res.status(500).end()
     }
     res.status(200).end()
