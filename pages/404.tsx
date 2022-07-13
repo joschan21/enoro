@@ -2,9 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-interface PageNotFoundProps {}
-
-const PageNotFound: FC<PageNotFoundProps> = ({}) => {
+const PageNotFound: FC = () => {
   return (
     <div className='absolute inset-0'>
       <div className='min-h-full pt-16 pb-12 flex flex-col bg-darkblue'>

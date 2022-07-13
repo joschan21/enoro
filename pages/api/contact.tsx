@@ -36,8 +36,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const transporter = nodemailer.createTransport({
     host: process.env.HOST,
-    port: parseInt(process.env.MAIL_PORT!),
-    secure: !!process.env.SECURE,
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.USER,
       pass: process.env.PASS,
@@ -45,9 +45,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   })
 
   const mailOptions = {
-    from: 'Elias Noro Booking <booking@eliasnoro.de',
-    to: 'neske.joscha@gmail.com',
-    subject: 'Neue Auftritt-Anfrage!',
+    from: process.env.FROM,
+    to: process.env.RECIPIENT,
+    subject: `Neue Auftritt-Anfrage von ${name}!`,
     html: output,
   }
 
