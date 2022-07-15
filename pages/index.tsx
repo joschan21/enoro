@@ -45,22 +45,22 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ result }) => {
-  const { header, about, appearances, cta, shows, faq } = result
+  const { settings, header, about, appearances, cta, shows, faq } = result
 
   return (
     <>
       <Head>
-        <title>Elias Noro | Zauberer Hamburg</title>
-        <meta name='description' content='Elias Noro Zauberer Hamburg' />
+        <title>{settings?.title || 'Elias Noro | Zauberer Hamburg'}</title>
+        <meta name='description' content={settings?.description || 'Elias Noro Zauberer Hamburg'} />
         <link rel='icon' href='/logo.png' />
       </Head>
 
       <main>
         <Hero
-          greeting={header.smalltext}
-          description={header.description}
-          emoji={header.emoji}
-          largetext={header.bigtext}
+          greeting={header?.smalltext}
+          description={header?.description}
+          emoji={header?.emoji}
+          largetext={header?.bigtext}
         />
         <Suspense fallback={<div className='bg-red-500 h-screen w-screen'>asd</div>}>
           <DynamicAbout

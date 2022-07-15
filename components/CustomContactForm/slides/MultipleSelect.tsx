@@ -23,7 +23,7 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
   currentSlideIndex,
   setAnswers,
   slideNext,
-  maxOptions = options!.length,
+  maxOptions = options?.length,
 }) => {
   const [selectedIndices, setSelectedIndices] = useState<number[]>([])
 
@@ -42,14 +42,14 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
 
   useEffect(() => {
     if (currentSlideIndex === currentQuestionIndex) {
-      const selectedOptions = options!.filter((_, index) => selectedIndices.includes(index))
-      const selectedCaptions = selectedOptions.map((option) => option.caption)
+      const selectedOptions = options?.filter((_, index) => selectedIndices.includes(index))
+      const selectedCaptions = selectedOptions?.map((option) => option.caption)
 
       // If question has not been answered yet, add to array. Else, replace existing answer.
       const questionIndex = answers.findIndex((slide) => slide.question === title)
       const hasAlreadyBeenAnswered = questionIndex !== -1
 
-      if (!hasAlreadyBeenAnswered) {
+      if (!hasAlreadyBeenAnswered && selectedCaptions) {
         setAnswers((prev) => [
           ...prev,
           {
@@ -57,7 +57,7 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
             answer: selectedCaptions,
           },
         ])
-      } else if (hasAlreadyBeenAnswered) {
+      } else if (hasAlreadyBeenAnswered && selectedCaptions) {
         setAnswers((prev) => {
           const copy = prev
           copy[questionIndex].answer = selectedCaptions
@@ -86,7 +86,7 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
         <p className='mt-4 max-w-2xl text-base text-textcolor sm:mx-auto'>{subtitle}</p>
       </div>
       <dl className='sm:flex sm:flex-wrap sm:justify-center gap-10 mt-10 mb-2'>
-        {options!.map((option, index) => {
+        {options?.map((option, index) => {
           // Card should have the "selected card" style applied
           const isSelected = selectedIndices.includes(index)
           const img = getImg(option.img)

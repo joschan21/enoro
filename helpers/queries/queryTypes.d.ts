@@ -71,7 +71,14 @@ interface faq {
   questions: question[]
 }
 
+interface settings {
+  description: string
+  production: boolean
+  title: string
+}
+
 export interface homepageQueryType {
+  settings: settings
   header: header
   about: about
   appearances: appearances

@@ -5,17 +5,14 @@
 // })
 
 const nextConfig = {
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
-
-    return config
+  async redirects() {
+    return [
+      process.env.MAINTENANCE_MODE === '1' && {
+        source: '/((?!maintenance).*)',
+        destination: '/maintenance',
+        permanent: false,
+      },
+    ].filter(Boolean)
   },
   reactStrictMode: true,
   images: {

@@ -1,5 +1,10 @@
 export const homepageQuery = `
 {
+  'settings':*[_type == 'siteSettings'] {
+    description,
+    production,
+    title
+  }[0],
   'header':*[_type == "header"] {
 bigtext,
   description,

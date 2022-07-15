@@ -29,9 +29,9 @@ const SingleSelect: FC<SingleSelectProps> = ({
 
     const questionIndex = answers.findIndex((slide) => slide.question === title)
     const hasAlreadyBeenAnswered = questionIndex !== -1
-    const chosenOption = options![index].caption
+    const chosenOption = options && options[index].caption
 
-    if (!hasAlreadyBeenAnswered) {
+    if (!hasAlreadyBeenAnswered && chosenOption) {
       setAnswers((prev) => [
         ...prev,
         {
@@ -39,7 +39,7 @@ const SingleSelect: FC<SingleSelectProps> = ({
           answer: [chosenOption],
         },
       ])
-    } else if (hasAlreadyBeenAnswered) {
+    } else if (hasAlreadyBeenAnswered && chosenOption) {
       setAnswers((prev) => {
         const copy = prev
         copy[questionIndex].answer = [chosenOption]
@@ -60,7 +60,7 @@ const SingleSelect: FC<SingleSelectProps> = ({
         <p className='mt-4 max-w-2xl text-base text-textcolor sm:mx-auto'>{subtitle}</p>
       </div>
       <dl className='sm:flex sm:flex-wrap sm:justify-center gap-10 mt-10 mb-2'>
-        {options!.map((option, index) => {
+        {options?.map((option, index) => {
           // Card should have the "selected card" style applied
           const isSelected = answers[currentQuestionIndex]?.answer.includes(option.caption)
           const img = getImg(option.img)
