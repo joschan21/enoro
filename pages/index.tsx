@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { FC, Suspense } from 'react'
 import PreDynamicState from '../components/common/PreDynamicState'
 import Hero from '../components/homepage/Hero'
+import LogoCloud from '../components/homepage/LogoCloud'
 import { homepageQuery } from '../helpers/queries/queries'
 import { homepageQueryType } from '../helpers/queries/queryTypes'
 import sanityClient from '../sanity'
@@ -62,6 +63,7 @@ const Home: FC<HomeProps> = ({ result }) => {
           emoji={header?.emoji}
           largetext={header?.bigtext}
         />
+        <LogoCloud />
         <Suspense fallback={<div className='bg-red-500 h-screen w-screen'>asd</div>}>
           <DynamicAbout
             categories={about.aboutCategories}

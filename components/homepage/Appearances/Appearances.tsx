@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 import { appearance } from '../../../helpers/queries/queryTypes'
 import Heading from '../../common/Heading'
+import YoutubeEmbed from '../../common/YoutubeEmbed'
 import AppearancesList from './AppearancesList'
 
 interface AppearancesProps {
@@ -27,6 +28,33 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
         <Heading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
 
         <AppearancesList appearances={appearances} />
+
+        <hr className='h-[1px] border border-bordercolor w-32 my-16 mx-auto' />
+
+        <section className='mb-6' aria-labelledby='details-heading'>
+          <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8'>
+            <div>
+              <div className='w-full rounded-lg overflow-hidden'>
+                <YoutubeEmbed embedId='NuxG6hToOvM' />
+              </div>
+              <p className='mt-8 text-base text-textcolor'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis nihil culpa eligendi
+                deleniti. Ullam qui, error repudiandae consequuntur sed officiis cum vel. Consequuntur,
+                tempora maxime distinctio quod expedita deserunt.
+              </p>
+            </div>
+            <div>
+              <div className='w-full rounded-lg overflow-hidden'>
+                <YoutubeEmbed embedId='E4zr1YuEwYc' />
+              </div>
+              <p className='mt-8 text-base text-textcolor'>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis aut natus voluptas
+                quibusdam facere, ex officiis esse, officia assumenda pariatur, numquam eveniet! Culpa, animi
+                aut!
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   )

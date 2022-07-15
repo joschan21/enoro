@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { AiOutlineHeart } from 'react-icons/ai'
 
 const icons = [
   {
@@ -57,6 +58,15 @@ const Footer: FC = () => {
             <p className='mt-8 text-center text-base text-gray-400'>
               &copy; 2022 Elias Noro, alle Rechte vorbehalten.
             </p>
+            <div className='w-full flex justify-center'>
+              <p className='text-[10px] mt-4 text-textcolor/75 flex gap-1 items-center'>
+                Website gemacht mit
+                <span>
+                  <AiOutlineHeart className='text-primary' />
+                </span>
+                von Joscha
+              </p>
+            </div>
           </div>
         </footer>
       )}
