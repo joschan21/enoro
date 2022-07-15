@@ -73,7 +73,6 @@ interface faq {
 
 interface settings {
   description: string
-  production: boolean
   title: string
 }
 
