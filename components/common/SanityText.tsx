@@ -12,6 +12,8 @@ const SanityText: FC<SanityTextProps> = ({ content, className }) => {
     <PortableText
       serializers={{
         more: () => <br />,
+        strong: ({ children }: any) => <span className='text-white font-semibold'>{children}</span>,
+        normal: ({children}: any) => <p className='my-2.5'>{children}</p>
       }}
       content={content}
       projectId={projectId}
