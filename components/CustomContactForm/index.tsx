@@ -5,15 +5,15 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // import required modules
+import dynamic from 'next/dynamic'
 import { FC, useState } from 'react'
 import SwiperType from 'swiper'
 import ProgressBar from './ProgressBar'
 import questions from './questions'
-import { SingleSelectAnswer } from './typings'
-import PersonalInfoSlide from './PersonalInfoSlide'
 import MultipleSelect from './slides/MultipleSelect'
 import SingleSelect from './slides/SingleSelect'
 import ThankYouPage from './ThankYouPage'
+import { SingleSelectAnswer } from './typings'
 
 const ContactForm: FC = () => {
   const [swiperRef, setSwiperRef] = useState<null | SwiperType>(null)
@@ -34,6 +34,9 @@ const ContactForm: FC = () => {
 
   const progressWithoutLastPage = Math.abs(currentSlideIndex / (questions.length - 2))
   const onThankYouPage = currentSlideIndex === questions.length - 1
+
+  const DynamicPersonalInfoSlide = dynamic(() => import('./PersonalInfoSlide'))
+  const infoSlideIndex = questions.findIndex((question) => question.type === 'personal_info')
 
   return (
     <div className='overflow-hidden rounded-lg contact-form-background p-6'>
@@ -80,13 +83,15 @@ const ContactForm: FC = () => {
               case 'personal_info':
                 return (
                   <SwiperSlide key={question.title} className='contact-form-background'>
-                    <PersonalInfoSlide
-                      title={question.title}
-                      subtitle={question.subtitle}
-                      answers={answers}
-                      swiperRef={swiperRef}
-                      slideNext={slideNext}
-                    />
+                    {infoSlideIndex === currentSlideIndex && (
+                      <DynamicPersonalInfoSlide
+                        title={question.title}
+                        subtitle={question.subtitle}
+                        answers={answers}
+                        swiperRef={swiperRef}
+                        slideNext={slideNext}
+                      />
+                    )}
                   </SwiperSlide>
                 )
               case 'thank_you':
@@ -104,6 +109,7 @@ const ContactForm: FC = () => {
         <div className='flex gap-6 items-center justify-center pt-8'>
           <button
             type='button'
+            aria-label='Zurück'
             onClick={slidePrev}
             disabled={swiperRef?.isBeginning}
             className='group inline-flex aspect-square border border-primary transition items-center p-3 sm:p-2 text-base font-medium rounded-md shadow-sm text-black disabled:border-bordercolor hover:bg-gray-800'>
@@ -114,6 +120,7 @@ const ContactForm: FC = () => {
           </div>
           <button
             type='button'
+            aria-label='Nächste'
             onClick={slideNext}
             disabled={swiperRef?.isEnd || !answers[currentSlideIndex]}
             className='group inline-flex aspect-square border border-primary transition items-center p-3 sm:p-2 text-base font-medium rounded-md shadow-sm text-black disabled:border-bordercolor hover:bg-gray-800'>

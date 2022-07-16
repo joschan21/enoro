@@ -46,8 +46,6 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
               className='absolute inset-0 opacity-25 w-full h-full'>
               <Image
                 layout='fill'
-                width={739}
-                height={215}
                 objectFit='cover'
                 className='blur-md'
                 src={`${dynamicImageSource(currentIndex)}`}

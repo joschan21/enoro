@@ -63,11 +63,12 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
                   <div
                     key={show._id}
                     className='group relative bg-black/10 backdrop-blur-[2px] border border-bordercolor rounded-lg flex flex-col overflow-hidden'>
-                    <div className='aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96'>
+                    <div className='relative aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96'>
                       <Image
                         alt='Elias Noro Zauberer Hamburg'
                         quality={90}
                         layout='fill'
+                        objectFit='cover'
                         src={getUrl(show.image)}
                         className='w-full h-full object-center object-cover sm:w-full sm:h-full'
                       />
@@ -85,7 +86,6 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
                 ))}
               </div>
             </div>
-            {/* <SecondaryButton text={'Details ansehen'} href={'/zaubershows'} /> */}
           </div>
         </div>
       </div>

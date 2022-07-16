@@ -14,9 +14,9 @@ const index: FC = () => {
           subheading='Über das Kontaktformular können Sie mich unkompliziert und sehr schnell erreichen. Sie bevorzugen den Kontakt per E-Mail oder Telefon? Kein Problem.'
         />
 
-        <div className='-mt-4 mb-8'>
+        <div className='mb-8 flex flex-col gap-2'>
           <Link href='mailto:booking@eliasnoro.de'>
-            <a className='text-base text-textcolor flex gap-1 items-center w-fit'>
+            <a className='text-base text-textcolor flex gap-1.5 items-center w-fit'>
               <HiMail />
               <span className='font-[500]'>booking@eliasnoro.de</span>
             </a>

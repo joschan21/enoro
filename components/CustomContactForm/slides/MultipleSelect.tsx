@@ -85,7 +85,7 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
         </p>
         <p className='mt-4 max-w-2xl text-base text-textcolor sm:mx-auto'>{subtitle}</p>
       </div>
-      <dl className='sm:flex sm:flex-wrap sm:justify-center gap-10 mt-10 mb-2'>
+      <div className='sm:flex sm:flex-wrap sm:justify-center gap-10 mt-10 mb-2'>
         {options?.map((option, index) => {
           // Card should have the "selected card" style applied
           const isSelected = selectedIndices.includes(index)
@@ -97,21 +97,25 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
               <div
                 onClick={() => handleSelection(index)}
                 className={`hidden sm:flex desktop-card ${isSelected && 'desktop-card-selected'}`}>
-                <dt className='order-2 sm:mt-2 text-lg leading-6 font-medium text-color'>{option.caption}</dt>
-                <dd className='order-1 text-3xl sm:text-5xl font-extrabold text-primary'>{img}</dd>
+                <div className='order-2 sm:mt-2 text-lg leading-6 font-medium text-color'>
+                  {option.caption}
+                </div>
+                <div className='order-1 text-3xl sm:text-5xl font-extrabold text-primary'>{img}</div>
               </div>
 
               {/* Mobile answer */}
               <div
                 onClick={() => handleSelection(index)}
                 className={`sm:hidden mobile-card ${isSelected && 'mobile-card-selected '}`}>
-                <dt className='order-2 sm:mt-2 text-lg leading-6 font-medium text-color'>{option.caption}</dt>
-                <dd className='order-1 text-3xl sm:text-5xl font-extrabold text-primary'>{img}</dd>
+                <div className='order-2 sm:mt-2 text-lg leading-6 font-medium text-color'>
+                  {option.caption}
+                </div>
+                <div className='order-1 text-3xl sm:text-5xl font-extrabold text-primary'>{img}</div>
               </div>
             </React.Fragment>
           )
         })}
-      </dl>
+      </div>
       <p className='text-sm text-color text-center pt-2'>Mehrfachauswahl möglich.</p>
     </div>
   )

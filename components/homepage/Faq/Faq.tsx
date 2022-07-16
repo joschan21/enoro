@@ -37,14 +37,14 @@ const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => 
         </div>
         <DynamicHeading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
 
-        <dl className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
+        <div className='mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3'>
           {questions.map((question) => (
             <div key={question._id}>
-              <dt className='text-base font-medium text-white'>{question.question}</dt>
-              <dd className='mt-3 text-base text-textcolor'>{question.answer}</dd>
+              <div className='text-base font-medium text-white'>{question.question}</div>
+              <div className='mt-3 text-base text-textcolor'>{question.answer}</div>
             </div>
           ))}
-        </dl>
+        </div>
       </div>
     </section>
   )

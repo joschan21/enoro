@@ -8,33 +8,6 @@ import { homepageQuery } from '../helpers/queries/queries'
 import { homepageQueryType } from '../helpers/queries/queryTypes'
 import sanityClient from '../sanity'
 
-const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
-  ssr: false,
-  loading: () => <PreDynamicState />,
-})
-const DynamicAppearances = dynamic(() => import('../components/homepage/Appearances/Appearances'), {
-  ssr: false,
-  loading: () => <PreDynamicState />,
-})
-const DynamicCallToAction = dynamic(() => import('../components/homepage/CallToAction'), {
-  ssr: false,
-  loading: () => <PreDynamicState />,
-})
-
-const DynamicShows = dynamic(() => import('../components/homepage/Shows/Shows'), {
-  ssr: false,
-  loading: () => <PreDynamicState />,
-})
-
-const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
-  ssr: false,
-  loading: () => <PreDynamicState />,
-})
-const DynamicContact = dynamic(() => import('../components/homepage/Contact'), {
-  ssr: false,
-  loading: () => <PreDynamicState />,
-})
-
 export async function getStaticProps() {
   const result: homepageQueryType = await sanityClient.fetch(homepageQuery)
 
@@ -46,6 +19,33 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ result }) => {
+  const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
+    ssr: false,
+    loading: () => <PreDynamicState />,
+  })
+  const DynamicAppearances = dynamic(() => import('../components/homepage/Appearances/Appearances'), {
+    ssr: false,
+    loading: () => <PreDynamicState />,
+  })
+  const DynamicCallToAction = dynamic(() => import('../components/homepage/CallToAction'), {
+    ssr: false,
+    loading: () => <PreDynamicState />,
+  })
+
+  const DynamicShows = dynamic(() => import('../components/homepage/Shows/Shows'), {
+    ssr: false,
+    loading: () => <PreDynamicState />,
+  })
+
+  const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
+    ssr: false,
+    loading: () => <PreDynamicState />,
+  })
+  const DynamicContact = dynamic(() => import('../components/homepage/Contact'), {
+    ssr: false,
+    loading: () => <PreDynamicState />,
+  })
+
   const { settings, header, about, appearances, cta, shows, faq } = result
 
   return (
@@ -64,7 +64,7 @@ const Home: FC<HomeProps> = ({ result }) => {
           largetext={header?.bigtext}
         />
         <LogoCloud />
-        <Suspense fallback={<div className='bg-red-500 h-screen w-screen'>asd</div>}>
+        <Suspense fallback={<></>}>
           <DynamicAbout
             categories={about.aboutCategories}
             heading={about.heading}

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import PortableText from 'react-portable-text'
 import { dataset, projectId } from '../../constants/sanity'
 
