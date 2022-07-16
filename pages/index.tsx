@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { FC, MutableRefObject, Suspense, useEffect, useRef, useState } from 'react'
+import { FC, Suspense } from 'react'
 import PreDynamicState from '../components/common/PreDynamicState'
 import Hero from '../components/homepage/Hero'
 import LogoCloud from '../components/homepage/LogoCloud'
@@ -39,33 +39,6 @@ const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
 const DynamicContact = dynamic(() => import('../components/homepage/Contact'), {
   loading: () => <PreDynamicState />,
 })
-
-const useOnScreen = (ref: MutableRefObject<HTMLDivElement | null>, rootMargin = '0px') => {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting)
-      },
-      {
-        rootMargin,
-      }
-    )
-
-    const currentElement = ref?.current
-
-    if (currentElement) {
-      observer.observe(currentElement)
-    }
-
-    return () => {
-      if (currentElement) observer.unobserve(currentElement)
-    }
-  }, [])
-
-  return isVisible
-}
 
 const Home: FC<HomeProps> = ({ result }) => {
   const { settings, header, about, appearances, cta, shows, faq } = result
