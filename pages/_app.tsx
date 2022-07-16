@@ -21,3 +21,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
+
+{
+  /* <LazyMotion strict features={loadFramerMotionFeatures}> */
+}
+// </LazyMotion>

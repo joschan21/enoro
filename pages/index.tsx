@@ -1,9 +1,13 @@
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { FC, Suspense } from 'react'
-import PreDynamicState from '../components/common/PreDynamicState'
+import { FC } from 'react'
+import About from '../components/homepage/About/About'
+import Appearances from '../components/homepage/Appearances/Appearances'
+import CallToAction from '../components/homepage/CallToAction'
+import Contact from '../components/homepage/Contact'
+import Faq from '../components/homepage/Faq/Faq'
 import Hero from '../components/homepage/Hero'
 import LogoCloud from '../components/homepage/LogoCloud'
+import Shows from '../components/homepage/Shows/Shows'
 import { homepageQuery } from '../helpers/queries/queries'
 import { homepageQueryType } from '../helpers/queries/queryTypes'
 import sanityClient from '../sanity'
@@ -18,34 +22,29 @@ interface HomeProps {
   result: homepageQueryType
 }
 
+// const About = (() => import('../components/homepage/About/About'), {
+//   loading: () => <PreState />,
+// })
+// const Appearances = (() => import('../components/homepage/Appearances/Appearances'), {
+//   loading: () => <PreState />,
+// })
+// const CallToAction = (() => import('../components/homepage/CallToAction'), {
+//   loading: () => <PreState />,
+// })
+
+// const Shows = (() => import('../components/homepage/Shows/Shows'), {
+//   loading: () => <PreState />,
+// })
+
+// const Faq = (() => import('../components/homepage/Faq/Faq'), {
+//   loading: () => <PreState />,
+// })
+
+// const Contact = (() => import('../components/homepage/Contact'), {
+//   loading: () => <PreState />,
+// })
+
 const Home: FC<HomeProps> = ({ result }) => {
-  const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
-    ssr: false,
-    loading: () => <PreDynamicState />,
-  })
-  const DynamicAppearances = dynamic(() => import('../components/homepage/Appearances/Appearances'), {
-    ssr: false,
-    loading: () => <PreDynamicState />,
-  })
-  const DynamicCallToAction = dynamic(() => import('../components/homepage/CallToAction'), {
-    ssr: false,
-    loading: () => <PreDynamicState />,
-  })
-
-  const DynamicShows = dynamic(() => import('../components/homepage/Shows/Shows'), {
-    ssr: false,
-    loading: () => <PreDynamicState />,
-  })
-
-  const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
-    ssr: false,
-    loading: () => <PreDynamicState />,
-  })
-  const DynamicContact = dynamic(() => import('../components/homepage/Contact'), {
-    ssr: false,
-    loading: () => <PreDynamicState />,
-  })
-
   const { settings, header, about, appearances, cta, shows, faq } = result
 
   return (
@@ -64,34 +63,33 @@ const Home: FC<HomeProps> = ({ result }) => {
           largetext={header?.bigtext}
         />
         <LogoCloud />
-        <Suspense fallback={<></>}>
-          <DynamicAbout
-            categories={about.aboutCategories}
-            heading={about.heading}
-            smallheading={about.smallheading}
-            subheading={about.subheading}
-          />
-          <DynamicAppearances
-            heading={appearances.heading}
-            smallheading={appearances.smallheading}
-            subheading={appearances.subheading}
-            appearances={appearances.appearances}
-          />
-          <DynamicCallToAction heading={cta.heading} description={cta.description} btntext={cta.btntext} />
-          <DynamicShows
-            heading={shows.heading}
-            shows={shows.shows}
-            smallheading={shows.smallheading}
-            subheading={shows.subheading}
-          />
-          <DynamicFaq
-            heading={faq.heading}
-            questions={faq.questions}
-            smallheading={faq.smallheading}
-            subheading={faq.subheading}
-          />
-          <DynamicContact />
-        </Suspense>
+
+        <About
+          categories={about.aboutCategories}
+          heading={about.heading}
+          smallheading={about.smallheading}
+          subheading={about.subheading}
+        />
+        <Appearances
+          heading={appearances.heading}
+          smallheading={appearances.smallheading}
+          subheading={appearances.subheading}
+          appearances={appearances.appearances}
+        />
+        <CallToAction heading={cta.heading} description={cta.description} btntext={cta.btntext} />
+        <Shows
+          heading={shows.heading}
+          shows={shows.shows}
+          smallheading={shows.smallheading}
+          subheading={shows.subheading}
+        />
+        <Faq
+          heading={faq.heading}
+          questions={faq.questions}
+          smallheading={faq.smallheading}
+          subheading={faq.subheading}
+        />
+        <Contact />
       </main>
     </>
   )

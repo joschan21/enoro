@@ -1,11 +1,10 @@
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import Image from 'next/image'
-import { FC, useRef, useState } from 'react'
+import { FC, useState } from 'react'
 import { aboutCategory } from '../../../helpers/queries/queryTypes'
 import Heading from '../../common/Heading'
 import Slider from './Slider'
 import StoryTab from './StoryTab'
-import { m } from 'framer-motion'
 
 interface AboutProps {
   categories: aboutCategory[]
@@ -18,10 +17,8 @@ const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }
   const [currentIndex, setCurrentIndex] = useState(0)
   const currentCategory = categories[currentIndex]
   const { smallheading: currentSmallheading } = currentCategory
-  const motionDirection = useRef(1)
 
   const moveTo = (targetIndex: number) => {
-    motionDirection.current = 0 < targetIndex - currentIndex ? 1 : -1
     setCurrentIndex(targetIndex)
   }
 
