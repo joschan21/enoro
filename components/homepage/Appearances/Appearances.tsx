@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { FC } from 'react'
-import LiteYoutubeEmbed from 'react-lite-youtube-embed'
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import { appearance } from '../../../helpers/queries/queryTypes'
 import Heading from '../../common/Heading'
+import YoutubeEmbed from '../../YoutubeEmbed'
 import AppearancesList from './AppearancesList'
 
 interface AppearancesProps {
@@ -32,7 +32,7 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
           <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8'>
             <div>
               <div className='w-full rounded-lg overflow-hidden'>
-                <LiteYoutubeEmbed id='NuxG6hToOvM' title='Auftritt PGT' />
+                <YoutubeEmbed id='NuxG6hToOvM' title='Auftritt PGT' />
               </div>
               <p className='mt-8 text-base text-textcolor'>
                 Bei &quot;Persia&lsquo;s got Talent&quot; treten die besten Künstler aller Art im Fernsehen
@@ -42,7 +42,7 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
             </div>
             <div>
               <div className='w-full rounded-lg overflow-hidden'>
-                <LiteYoutubeEmbed id='E4zr1YuEwYc' title='Auftritt Hamburg 1' />
+                <YoutubeEmbed id='E4zr1YuEwYc' title='Auftritt Hamburg 1' />
               </div>
               <p className='mt-8 text-base text-textcolor'>
                 Ich hatte die Ehre, im Studio bei Hamburg 1 auftreten zu dürfen. Gar nicht so leicht, wenn so

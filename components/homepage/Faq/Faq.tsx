@@ -13,7 +13,6 @@ interface FaqProps {
 const DynamicHeading = dynamic(() => import('../../common/Heading'))
 
 const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => {
-  console.log("FAq renderd")
   return (
     <section className='relative' id='faq'>
       <div className='absolute inset-0 pointer-events-none' aria-hidden='true'>
