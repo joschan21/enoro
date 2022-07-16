@@ -16,7 +16,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
       className='relative z-[1] block overflow-hidden bg-[#0b1120] border-b border-bordercolor'>
       <div id='fade-up' className='absolute inset-0' aria-hidden={true}>
         <Image
-          quality={5}
+          quality={1}
           priority
           src='/hero_background.png'
           className='opacity-50 blur-md'
@@ -70,7 +70,13 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
               style={{ rotate: -6, scale: 0.8 }}
               animate={{ opacity: [0, 1], y: [150, 0] }}
               transition={{ delay: 0.75 }}>
-              <Image layout='fill' objectFit='contain' src='/card_front.png' alt='zauberer hamburg' />
+              <Image
+                quality={50}
+                layout='fill'
+                objectFit='contain'
+                src='/card_front.png'
+                alt='zauberer hamburg'
+              />
             </m.div>
 
             <m.div
@@ -78,7 +84,13 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
               style={{ rotate: 6, scale: 0.8 }}
               animate={{ opacity: [0, 1], y: [150, 0] }}
               transition={{ delay: 1 }}>
-              <Image layout='fill' objectFit='contain' src='/card_back.png' alt='zauberer hamburg buchen' />
+              <Image
+                quality={50}
+                layout='fill'
+                objectFit='contain'
+                src='/card_back.png'
+                alt='zauberer hamburg buchen'
+              />
             </m.div>
             <m.div
               whileInView={{ opacity: [0, 1], y: [150, 0] }}
@@ -86,7 +98,7 @@ const Hero: FC<HeroProps> = ({ emoji, greeting, largetext, description }) => {
               <Image
                 width={860}
                 height={1249}
-                quality={100}
+                quality={90}
                 layout='responsive'
                 priority
                 className='z-10'

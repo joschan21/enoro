@@ -1,13 +1,9 @@
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { FC } from 'react'
-import About from '../components/homepage/About/About'
-import Appearances from '../components/homepage/Appearances/Appearances'
-import CallToAction from '../components/homepage/CallToAction'
-import Contact from '../components/homepage/Contact'
-import Faq from '../components/homepage/Faq/Faq'
+import { FC, MutableRefObject, Suspense, useEffect, useRef, useState } from 'react'
+import PreDynamicState from '../components/common/PreDynamicState'
 import Hero from '../components/homepage/Hero'
 import LogoCloud from '../components/homepage/LogoCloud'
-import Shows from '../components/homepage/Shows/Shows'
 import { homepageQuery } from '../helpers/queries/queries'
 import { homepageQueryType } from '../helpers/queries/queryTypes'
 import sanityClient from '../sanity'
@@ -22,27 +18,54 @@ interface HomeProps {
   result: homepageQueryType
 }
 
-// const About = (() => import('../components/homepage/About/About'), {
-//   loading: () => <PreState />,
-// })
-// const Appearances = (() => import('../components/homepage/Appearances/Appearances'), {
-//   loading: () => <PreState />,
-// })
-// const CallToAction = (() => import('../components/homepage/CallToAction'), {
-//   loading: () => <PreState />,
-// })
+const DynamicAbout = dynamic(() => import('../components/homepage/About/About'), {
+  loading: () => <PreDynamicState />,
+})
+const DynamicAppearances = dynamic(() => import('../components/homepage/Appearances/Appearances'), {
+  loading: () => <PreDynamicState />,
+})
+const DynamicCallToAction = dynamic(() => import('../components/homepage/CallToAction'), {
+  loading: () => <PreDynamicState />,
+})
 
-// const Shows = (() => import('../components/homepage/Shows/Shows'), {
-//   loading: () => <PreState />,
-// })
+const DynamicShows = dynamic(() => import('../components/homepage/Shows/Shows'), {
+  loading: () => <PreDynamicState />,
+})
 
-// const Faq = (() => import('../components/homepage/Faq/Faq'), {
-//   loading: () => <PreState />,
-// })
+const DynamicFaq = dynamic(() => import('../components/homepage/Faq/Faq'), {
+  loading: () => <PreDynamicState />,
+})
 
-// const Contact = (() => import('../components/homepage/Contact'), {
-//   loading: () => <PreState />,
-// })
+const DynamicContact = dynamic(() => import('../components/homepage/Contact'), {
+  loading: () => <PreDynamicState />,
+})
+
+const useOnScreen = (ref: MutableRefObject<HTMLDivElement | null>, rootMargin = '0px') => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      {
+        rootMargin,
+      }
+    )
+
+    const currentElement = ref?.current
+
+    if (currentElement) {
+      observer.observe(currentElement)
+    }
+
+    return () => {
+      if (currentElement) observer.unobserve(currentElement)
+    }
+  }, [])
+
+  return isVisible
+}
 
 const Home: FC<HomeProps> = ({ result }) => {
   const { settings, header, about, appearances, cta, shows, faq } = result
@@ -63,33 +86,34 @@ const Home: FC<HomeProps> = ({ result }) => {
           largetext={header?.bigtext}
         />
         <LogoCloud />
-
-        <About
-          categories={about.aboutCategories}
-          heading={about.heading}
-          smallheading={about.smallheading}
-          subheading={about.subheading}
-        />
-        <Appearances
-          heading={appearances.heading}
-          smallheading={appearances.smallheading}
-          subheading={appearances.subheading}
-          appearances={appearances.appearances}
-        />
-        <CallToAction heading={cta.heading} description={cta.description} btntext={cta.btntext} />
-        <Shows
-          heading={shows.heading}
-          shows={shows.shows}
-          smallheading={shows.smallheading}
-          subheading={shows.subheading}
-        />
-        <Faq
-          heading={faq.heading}
-          questions={faq.questions}
-          smallheading={faq.smallheading}
-          subheading={faq.subheading}
-        />
-        <Contact />
+        <Suspense fallback={<></>}>
+          <DynamicAbout
+            categories={about.aboutCategories}
+            heading={about.heading}
+            smallheading={about.smallheading}
+            subheading={about.subheading}
+          />
+          <DynamicAppearances
+            heading={appearances.heading}
+            smallheading={appearances.smallheading}
+            subheading={appearances.subheading}
+            appearances={appearances.appearances}
+          />
+          <DynamicCallToAction heading={cta.heading} description={cta.description} btntext={cta.btntext} />
+          <DynamicShows
+            heading={shows.heading}
+            shows={shows.shows}
+            smallheading={shows.smallheading}
+            subheading={shows.subheading}
+          />
+          <DynamicFaq
+            heading={faq.heading}
+            questions={faq.questions}
+            smallheading={faq.smallheading}
+            subheading={faq.subheading}
+          />
+          <DynamicContact />
+        </Suspense>
       </main>
     </>
   )
