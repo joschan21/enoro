@@ -66,6 +66,7 @@ const Shows: FC<ShowsProps> = ({ heading, subheading, smallheading, shows }) => 
                     <div className='aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96'>
                       <Image
                         alt='Elias Noro Zauberer Hamburg'
+                        quality={90}
                         layout='fill'
                         src={getUrl(show.image)}
                         className='w-full h-full object-center object-cover sm:w-full sm:h-full'

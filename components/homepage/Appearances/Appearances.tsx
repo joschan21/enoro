@@ -27,20 +27,16 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
         </div>
         <Heading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
 
-        <AppearancesList appearances={appearances} />
-
-        <hr className='h-[1px] border border-bordercolor w-32 my-16 mx-auto' />
-
-        <section className='mb-6' aria-labelledby='details-heading'>
+        <section className='my-6 sm:mt-10 lg:mt-12' aria-labelledby='details-heading'>
           <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8'>
             <div>
               <div className='w-full rounded-lg overflow-hidden'>
                 <YoutubeEmbed embedId='NuxG6hToOvM' />
               </div>
               <p className='mt-8 text-base text-textcolor'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis nihil culpa eligendi
-                deleniti. Ullam qui, error repudiandae consequuntur sed officiis cum vel. Consequuntur,
-                tempora maxime distinctio quod expedita deserunt.
+                Bei &quot;Persia&lsquo;s got Talent&quot; treten die besten Künstler aller Art im Fernsehen gegeneinander an.
+                Nur die Besten kommen in die nächste Runde. Hier können Sie sich einen meiner Auftritte in
+                voller Länge ansehen.
               </p>
             </div>
             <div>
@@ -48,13 +44,16 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
                 <YoutubeEmbed embedId='E4zr1YuEwYc' />
               </div>
               <p className='mt-8 text-base text-textcolor'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis aut natus voluptas
-                quibusdam facere, ex officiis esse, officia assumenda pariatur, numquam eveniet! Culpa, animi
-                aut!
+                Ich hatte die Ehre, im Studio bei Hamburg 1 auftreten zu dürfen. Gar nicht so leicht, wenn so
+                viele Kameras aus so vielen Blickwinkeln genau hinsehen. Hier können Sie sich das Interview ansehen.
               </p>
             </div>
           </div>
         </section>
+
+        <hr className='h-[1px] border border-bordercolor w-32 my-16 mx-auto' />
+
+        <AppearancesList appearances={appearances} />
       </div>
     </section>
   )

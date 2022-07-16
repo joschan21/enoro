@@ -9,8 +9,12 @@ const questions = [
         caption: 'Geburtstag',
       },
       {
+        img: '/weddings_rings_marriage.png',
+        caption: 'Hochzeit',
+      },
+      {
         img: '/briefcase_icon.png',
-        caption: 'Geschäftlich',
+        caption: 'Firmenfeier',
       },
       {
         img: '/arrow_right.png',
@@ -20,7 +24,7 @@ const questions = [
   },
   {
     type: 'single_select',
-    title: 'Wie lang möchten Sie unterhalten werden?',
+    title: 'Wie lange möchten Sie unterhalten werden?',
     subtitle: '',
     options: [
       {

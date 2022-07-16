@@ -156,7 +156,7 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
               })}
               spellCheck={false}
               className=' placeholder-textcolor/80 text-textcolor focus:border-primary block w-full pl-10 sm:text-sm border-bordercolor bg-darkblue rounded-md'
-              placeholder='0171 123456'
+              placeholder='0157 123456'
             />
           </div>
         </div>

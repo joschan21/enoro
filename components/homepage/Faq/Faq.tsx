@@ -41,7 +41,7 @@ const Faq: FC<FaqProps> = ({ heading, subheading, smallheading, questions }) => 
           {questions.map((question) => (
             <div key={question._id}>
               <dt className='text-base font-medium text-white'>{question.question}</dt>
-              <dd className='mt-3 text-sm text-textcolor'>{question.answer}</dd>
+              <dd className='mt-3 text-base text-textcolor'>{question.answer}</dd>
             </div>
           ))}
         </dl>

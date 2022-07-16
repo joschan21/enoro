@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { FC } from 'react'
+import { HiMail, HiPhone } from 'react-icons/hi'
 import Heading from '../../common/Heading'
 import CustomContactForm from '../../CustomContactForm'
 
@@ -9,8 +11,23 @@ const index: FC = () => {
         <Heading
           heading='Kostenlose & unverbindliche Anfrage'
           smallheading='Kontakt'
-          subheading='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.'
+          subheading='Über das Kontaktformular können Sie mich unkompliziert und sehr schnell erreichen. Sie bevorzugen den Kontakt per E-Mail oder Telefon? Kein Problem.'
         />
+
+        <div className='-mt-4 mb-8'>
+          <Link href='mailto:booking@eliasnoro.de'>
+            <a className='text-base text-textcolor flex gap-1 items-center w-fit'>
+              <HiMail />
+              <span className='font-[500]'>booking@eliasnoro.de</span>
+            </a>
+          </Link>
+          <Link href='tel:+49015755532382'>
+            <a className='text-base text-textcolor flex gap-1.5 items-center w-fit'>
+              <HiPhone />
+              <span className='font-[500]'>+49 0157 55532382</span>
+            </a>
+          </Link>
+        </div>
 
         <CustomContactForm />
       </div>
