@@ -1,4 +1,5 @@
 import { Disclosure } from '@headlessui/react'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -11,13 +12,15 @@ const Navbar: FC = () => {
   const router = useRouter()
   const maintenanceMode = router.pathname.includes('maintenance')
 
+  const DynamicMobileMenu = dynamic(() => import('../MobileMenu'))
+
   return (
     <>
       {!maintenanceMode && (
         <Disclosure
           as='nav'
           className='bg-verydark border-b border-bordercolor backdrop-blur-sm shadow fixed top-0 left-0 right-0 z-[60]'>
-          {({ open, close }) => (
+          {({ open }) => (
             <>
               <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
                 <div className='relative flex items-center justify-between h-16'>
@@ -71,36 +74,7 @@ const Navbar: FC = () => {
                 </div>
               </div>
 
-              <Disclosure.Panel className='sm:hidden'>
-                <div className='px-2 pt-2 pb-3 space-y-1'>
-                  {/**
-                   * Mobile nav items
-                   */}
-
-                  {nav.map((navItem) => (
-                    <Disclosure.Button key={navItem.label} as='div'>
-                      <DynamicLink
-                        linkTo={navItem.name}
-                        text={navItem.label}
-                        className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
-                        activeClassName='bg-black/80 text-white'
-                        onClick={close}
-                      />
-                    </Disclosure.Button>
-                  ))}
-
-                  {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-color hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-                  {/* {nav.map((navItem) => (
-                <DynamicLink
-                  key={navItem.label}
-                  linkTo={navItem.name}
-                  text={navItem.label}
-                  className='text-gray-300 hover:bg-black/80 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
-                  activeClassName='bg-black/80 text-white'
-                />
-              ))} */}
-                </div>
-              </Disclosure.Panel>
+              <DynamicMobileMenu />
             </>
           )}
         </Disclosure>
@@ -110,5 +84,3 @@ const Navbar: FC = () => {
 }
 
 export default Navbar
-
-// 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'

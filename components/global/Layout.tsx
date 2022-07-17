@@ -1,5 +1,5 @@
+import dynamic from 'next/dynamic'
 import { FC } from 'react'
-import Footer from './Footer'
 import Navbar from './Navbar'
 
 interface LayoutProps {
@@ -7,11 +7,15 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
+  const DynamicFooter = dynamic(() => import('./Footer'), {
+    loading: () => <div className='bg-black min-h-[12rem] w-full'></div>,
+  })
+
   return (
     <>
       <Navbar />
       {children}
-      <Footer />
+      <DynamicFooter />
     </>
   )
 }

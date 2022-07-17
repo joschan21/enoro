@@ -1,5 +1,5 @@
 import { HiArrowSmLeft, HiArrowSmRight } from 'react-icons/hi'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { SwiperProps, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -14,6 +14,11 @@ import MultipleSelect from './slides/MultipleSelect'
 import SingleSelect from './slides/SingleSelect'
 import ThankYouPage from './ThankYouPage'
 import { SingleSelectAnswer } from './typings'
+import PersonalInfoSlide from './PersonalInfoSlide'
+
+const DynamicSwiper: React.FunctionComponent<SwiperProps> = dynamic(() =>
+  import('swiper/react').then((module) => module.Swiper)
+) as React.FunctionComponent<SwiperProps>
 
 const ContactForm: FC = () => {
   const [swiperRef, setSwiperRef] = useState<null | SwiperType>(null)
@@ -35,13 +40,10 @@ const ContactForm: FC = () => {
   const progressWithoutLastPage = Math.abs(currentSlideIndex / (questions.length - 2))
   const onThankYouPage = currentSlideIndex === questions.length - 1
 
-  const DynamicPersonalInfoSlide = dynamic(() => import('./PersonalInfoSlide'))
-  const infoSlideIndex = questions.findIndex((question) => question.type === 'personal_info')
-
   return (
     <div className='overflow-hidden rounded-lg contact-form-background p-6'>
       <div className='sm:p-4'>
-        <Swiper
+        <DynamicSwiper
           centeredSlides={true}
           autoHeight={true}
           allowTouchMove={false}
@@ -83,15 +85,13 @@ const ContactForm: FC = () => {
               case 'personal_info':
                 return (
                   <SwiperSlide key={question.title} className='contact-form-background'>
-                    {infoSlideIndex === currentSlideIndex && (
-                      <DynamicPersonalInfoSlide
-                        title={question.title}
-                        subtitle={question.subtitle}
-                        answers={answers}
-                        swiperRef={swiperRef}
-                        slideNext={slideNext}
-                      />
-                    )}
+                    <PersonalInfoSlide
+                      title={question.title}
+                      subtitle={question.subtitle}
+                      answers={answers}
+                      swiperRef={swiperRef}
+                      slideNext={slideNext}
+                    />
                   </SwiperSlide>
                 )
               case 'thank_you':
@@ -102,7 +102,7 @@ const ContactForm: FC = () => {
                 )
             }
           })}
-        </Swiper>
+        </DynamicSwiper>
       </div>
 
       {!onThankYouPage && (

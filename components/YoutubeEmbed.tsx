@@ -88,7 +88,7 @@ const YoutubeEmbed: FC<LiteYouTube> = (props: LiteYouTube) => {
         onClick={addIframe}
         className={`${wrapperClassImp} ${iframe ? activatedClassImp : ''}`}
         data-title={videoTitle}>
-        <div className='h-[20.8rem] relative'>
+        <div className='pb-[56.25%] relative'>
           <Image src={posterUrl} layout='fill' objectFit='cover' alt='Elias Noro Auftritt Thumbnail' />
         </div>
         <button className={playerClassImp} aria-label={`${announceWatch} ${videoTitle}`} />
