@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import { appearance } from '../../../helpers/queries/queryTypes'
@@ -31,23 +32,28 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
         <hr className='border border-bordercolor w-24 -mt-2 mb-6' />
 
         <div className='flex flex-col gap-1'>
-          <p className='text-textcolor text-sm'>
-            &ldquo;Vom ersten Kontakt bis zur letzten Minute der Show absolut professionell, unkompliziert und
-            einfach magisch.&ldquo;
-          </p>
-          <div className='flex gap-3 items-center'>
-            <div className='relative w-20 h-6 rounded-full'>
-              <Image alt='5-Sterne-Bewertung' src='/rating_pink.png' layout='fill' objectFit='contain' />
-            </div>
-            <p className='text-sm font-semibold text-textcolor'>Max Mustermann</p>
-          </div>
+          <Link href='https://g.co/kgs/PEjVar'>
+            <a href='https://g.co/kgs/PEjVar' target='_blank' rel='noopener noreferrer'>
+              <p className='text-textcolor text-sm'>
+                &ldquo;Vom ersten Kontakt bis zur letzten Minute der Show absolut professionell, unkompliziert
+                und einfach magisch.&ldquo;
+              </p>
+              <div className='flex gap-3 items-center'>
+                <div className='relative w-20 h-6 rounded-full'>
+                  <Image alt='5-Sterne-Bewertung' src='/rating_pink.png' layout='fill' objectFit='contain' />
+                </div>
+
+                <p className='text-sm font-semibold text-textcolor'>Susanne Sträßner</p>
+              </div>
+            </a>
+          </Link>
         </div>
 
         <div className='my-6 sm:mt-10 lg:mt-12' aria-labelledby='details-heading'>
-          <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8'>
+          <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-8'>
             <div>
               <div className='w-full rounded-lg overflow-hidden'>
-                <YoutubeEmbed id='NuxG6hToOvM' title='Auftritt PGT' />
+                <YoutubeEmbed id='NuxG6hToOvM' title='Auftritt bei Persias got Talent' />
               </div>
               <p className='mt-8 text-base text-textcolor'>
                 Bei &quot;Persia&lsquo;s got Talent&quot; treten die besten Künstler aller Art im Fernsehen
@@ -55,14 +61,26 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
                 meiner Auftritte in voller Länge ansehen.
               </p>
             </div>
+
             <div>
               <div className='w-full rounded-lg overflow-hidden'>
-                <YoutubeEmbed id='E4zr1YuEwYc' title='Auftritt Hamburg 1' />
+                <YoutubeEmbed id='E4zr1YuEwYc' title='Auftritt bei Hamburg 1' />
               </div>
               <p className='mt-8 text-base text-textcolor'>
                 Ich hatte die Ehre, im Studio bei Hamburg 1 auftreten zu dürfen. Gar nicht so leicht, wenn so
                 viele Kameras aus so vielen Blickwinkeln genau hinsehen. Hier können Sie sich das Interview
                 ansehen.
+              </p>
+            </div>
+
+            <div>
+              <div className='w-full rounded-lg overflow-hidden'>
+                <YoutubeEmbed id='EDqG9E4tSaA' title='Auftritt bei Persias got Talent im Semifinale' />
+              </div>
+              <p className='mt-8 text-base text-textcolor'>
+                Nach dem vollen Erfolg in den Auswahlrunden von &quot;Persia&lsquo;s got Talent&quot; darf ich
+                auch im Semifinale teilnehmen. Schauen Sie sich hier an, mit welchem Zaubertrick ich die Jury
+                begeistere.
               </p>
             </div>
           </div>
@@ -77,3 +95,7 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
 }
 
 export default Appearances
+
+{
+  /* <iframe width="1280" height="720" src="https://www.youtube.com/embed/EDqG9E4tSaA" title="الیاس با اجراش داور ها رو مجذوبِ جادویِ خودش کرد" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */
+}
