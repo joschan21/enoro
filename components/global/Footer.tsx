@@ -1,14 +1,14 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
 
 const icons = [
   {
     icon: FaInstagram,
     link: 'https://www.instagram.com/elias_noro/',
-  },
+  }, 
   {
     icon: FaYoutube,
     link: 'https://www.youtube.com/eliasnoromagic',
