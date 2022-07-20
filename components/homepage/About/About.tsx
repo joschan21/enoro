@@ -16,7 +16,7 @@ interface AboutProps {
 const About: FC<AboutProps> = ({ categories, heading, smallheading, subheading }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const currentCategory = categories[currentIndex]
-  const { smallheading: currentSmallheading } = currentCategory
+  const currentSmallheading = currentCategory?.smallheading
 
   const moveTo = (targetIndex: number) => {
     setCurrentIndex(targetIndex)

@@ -4,20 +4,20 @@ import { aboutCategory } from '../../../helpers/queries/queryTypes'
 import SanityText from '../../common/SanityText'
 
 interface StoryTabProps {
-  currentCategory: aboutCategory
+  currentCategory: aboutCategory | undefined
 }
 
 const StoryTab: FC<StoryTabProps> = ({ currentCategory }) => {
   // Definitions
-  const smallheading = currentCategory.smallheading
-  const heading = currentCategory.heading
-  const text = currentCategory.text
+  const smallheading = currentCategory?.smallheading
+  const heading = currentCategory?.heading
+  const text = currentCategory?.text
 
   // Defining text content for left & right column
   // Finding the index "colBreak" in text array, splitting it into 2 columns but cutting colBreak out
-  const index = text.findIndex((obj) => obj._type === 'colBreak')
-  const leftColumn = text.slice(0, index)
-  const rightColumn = text.slice(index + 1)
+  const index = text?.findIndex((obj) => obj._type === 'colBreak')
+  const leftColumn = text?.slice(0, index)
+  const rightColumn = index && text?.slice(index + 1)
 
   return (
     <div className='relative bg-black/60 overflow-hidden border-b border-bordercolor'>
@@ -37,18 +37,20 @@ const StoryTab: FC<StoryTabProps> = ({ currentCategory }) => {
             </p>
           </div>
         </div>
-        <div className='relative md:pt-2'>
-          <div className='relative'>
-            <div className='lg:grid lg:grid-cols-2 lg:gap-6'>
-              <div className='prose prose-indigo prose-lg text-textcolor lg:max-w-none'>
-                <SanityText className='text-base text-textcolor' content={leftColumn} />
-              </div>
-              <div className='mt-6 prose prose-indigo prose-lg text-textcolor lg:mt-0'>
-                <SanityText className='text-base text-textcolor' content={rightColumn} />
+        {leftColumn && rightColumn && (
+          <div className='relative md:pt-2'>
+            <div className='relative'>
+              <div className='lg:grid lg:grid-cols-2 lg:gap-6'>
+                <div className='prose prose-indigo prose-lg text-textcolor lg:max-w-none'>
+                  <SanityText className='text-base text-textcolor' content={leftColumn} />
+                </div>
+                <div className='mt-6 prose prose-indigo prose-lg text-textcolor lg:mt-0'>
+                  <SanityText className='text-base text-textcolor' content={rightColumn} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </m.div>
     </div>
   )

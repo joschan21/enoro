@@ -28,7 +28,7 @@ const Slider: FC<SliderProps> = ({ categories, currentIndex, moveTo }) => {
     goToTab(0)
   }, [])
 
-  const active = tabs[currentIndex].smallheading
+  const active = tabs[currentIndex]?.smallheading
 
   return (
     <div className='mt-8'>

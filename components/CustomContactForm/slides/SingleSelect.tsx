@@ -29,7 +29,7 @@ const SingleSelect: FC<SingleSelectProps> = ({
 
     const questionIndex = answers.findIndex((slide) => slide.question === title)
     const hasAlreadyBeenAnswered = questionIndex !== -1
-    const chosenOption = options && options[index].caption
+    const chosenOption = options && options[index]?.caption
 
     if (!hasAlreadyBeenAnswered && chosenOption) {
       setAnswers((prev) => [
@@ -42,7 +42,7 @@ const SingleSelect: FC<SingleSelectProps> = ({
     } else if (hasAlreadyBeenAnswered && chosenOption) {
       setAnswers((prev) => {
         const copy = prev
-        copy[questionIndex].answer = [chosenOption]
+        copy[questionIndex]!.answer = [chosenOption]
 
         return copy
       })

@@ -28,6 +28,21 @@ const Appearances: FC<AppearancesProps> = ({ heading, smallheading, subheading, 
         </div>
         <Heading theme='pink' smallheading={smallheading} heading={heading} subheading={subheading} />
 
+        <hr className='border border-bordercolor w-24 -mt-2 mb-6' />
+
+        <div className='flex flex-col gap-1'>
+          <p className='text-textcolor text-sm'>
+            &ldquo;Vom ersten Kontakt bis zur letzten Minute der Show absolut professionell, unkompliziert und
+            einfach magisch.&ldquo;
+          </p>
+          <div className='flex gap-3 items-center'>
+            <div className='relative w-20 h-6 rounded-full'>
+              <Image alt='5-Sterne-Bewertung' src='/rating_pink.png' layout='fill' objectFit='contain' />
+            </div>
+            <p className='text-sm font-semibold text-textcolor'>Max Mustermann</p>
+          </div>
+        </div>
+
         <div className='my-6 sm:mt-10 lg:mt-12' aria-labelledby='details-heading'>
           <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-8'>
             <div>

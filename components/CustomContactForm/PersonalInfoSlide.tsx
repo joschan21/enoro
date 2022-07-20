@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -12,6 +13,7 @@ interface FormValues {
   email: string
   phone: string
   message: string
+  privacyPolicyAccepted: boolean
 }
 
 interface PersonalInfoSlideProps {
@@ -42,7 +44,7 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
 
     const formattedAnswers = answers.map((answer, index) => ({
       question: answer.question,
-      answer: answers[index].answer.join(', '),
+      answer: answers[index]?.answer.join(', '),
     }))
 
     try {
@@ -66,8 +68,14 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
     }
   }
 
+  const update = () => {
+    setTimeout(() => {
+      swiperRef?.updateAutoHeight()
+    }, 0)
+  }
+
   useEffect(() => {
-    swiperRef?.updateAutoHeight()
+    update()
   }, [errors])
 
   return (
@@ -78,7 +86,10 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
         </p>
         <p className='mt-4 max-w-2xl text-base text-textcolor sm:mx-auto'>{subtitle}</p>
       </div>
-      <form onSubmit={handleSubmit(onFormSubmit)} className='grid grid-cols-1 gap-y-6 max-w-2xl mx-auto'>
+      <form
+        onChange={() => update()}
+        onSubmit={handleSubmit(onFormSubmit)}
+        className='grid grid-cols-1 gap-y-6 max-w-2xl mx-auto'>
         <div>
           <label htmlFor='email' className='block text-sm font-medium text-primary'>
             Name
@@ -175,6 +186,38 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
           />
           {errors?.message && <p className='text-sm text-red-500 pt-2'>{errors.message.message}</p>}
         </div>
+        <div className='relative flex items-start'>
+          <div className='flex items-center h-5'>
+            <input
+              {...register('privacyPolicyAccepted', {
+                required: {
+                  value: true,
+                  message: 'Dieses Feld ist notwendig.',
+                },
+              })}
+              type='checkbox'
+              id='accepted'
+              className='focus:ring-none cursor-pointer bg-gray-800 h-4 w-4 text-bordercolor rounded'
+            />
+          </div>
+          <div className='ml-3 flex flex-col gap-2 items-start'>
+            <div className='text-sm'>
+              <span className='text-textcolor cursor-pointer'>
+                Ich habe die {' '}
+                <Link href='/datenschutz'>
+                  <a target='_blank' className='border-b border-bordercolor pb-[1px] text-[#dee6f1]'>
+                    Datenschutzerklärung
+                  </a>
+                </Link>{' '}
+                gelesen und akzeptiere diese.
+              </span>
+            </div>
+            {errors?.privacyPolicyAccepted && (
+              <p className='text-sm text-red-500'>{errors.privacyPolicyAccepted.message}</p>
+            )}
+          </div>
+        </div>
+
         <div className='w-full flex justify-center'>
           <button
             type='submit'

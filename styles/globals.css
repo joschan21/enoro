@@ -58,3 +58,14 @@ body {
   mask-image: linear-gradient(to top, transparent, black);
   -webkit-mask-image: linear-gradient(to top, transparent, black);
 }
+
+[type='checkbox']:focus {
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-offset-color: black !important;
+  --tw-ring-color: #38bdf8 !important;
+  --tw-ring-shadow: transparent !important;
+}
+
+[type='checkbox']:checked {
+  background-image: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="DeepSkyBlue" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>');
+}

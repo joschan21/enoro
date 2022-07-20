@@ -60,7 +60,7 @@ const MultipleSelect: FC<MultipleSelectProps> = ({
       } else if (hasAlreadyBeenAnswered && selectedCaptions) {
         setAnswers((prev) => {
           const copy = prev
-          copy[questionIndex].answer = selectedCaptions
+          copy[questionIndex]!.answer = selectedCaptions
 
           return copy
         })

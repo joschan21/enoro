@@ -4,7 +4,7 @@ import { HiChevronDown } from 'react-icons/hi'
 import { classNames } from '../../../helpers/services/services'
 
 interface SelectorProps {
-  active: string
+  active: string | undefined
   tabs: {
     current: boolean
     _id: string
