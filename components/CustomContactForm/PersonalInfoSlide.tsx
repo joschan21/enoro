@@ -202,7 +202,7 @@ const PersonalInfoSlide: FC<PersonalInfoSlideProps> = ({
           </div>
           <div className='ml-3 flex flex-col gap-2 items-start'>
             <div className='text-sm'>
-              <span className='text-textcolor cursor-pointer'>
+              <span className='text-textcolor'>
                 Ich habe die {' '}
                 <Link href='/datenschutz'>
                   <a target='_blank' className='border-b border-bordercolor pb-[1px] text-[#dee6f1]'>

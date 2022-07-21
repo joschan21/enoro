@@ -46,7 +46,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const mailOptions = {
     from: process.env.FROM,
-    to: process.env.RECIPIENT,
+    to: ['booking@eliasnoro.de', 'sahabielias1@gmail.com'],
     subject: `Neue Auftritt-Anfrage von ${name}!`,
     html: output,
   }
